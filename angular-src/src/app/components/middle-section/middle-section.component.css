@@ -1,0 +1,13 @@
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+  /*padding: 50px;*/
+}
+
+.jumbotron{
+    background:rgba(244, 244, 244, 0);
+}
+
+.lead{
+    font-style: italic;
+}

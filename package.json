@@ -4,6 +4,7 @@
   "description": "Watado realtime review app",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.0",
     "connect-flash": "^0.1.1",
@@ -28,8 +29,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sadeajayi/Watado.git"
+    "url": "https://sadeajayi@bitbucket.org/sadeajayi/watado.git"
   },
-  "author": "Ofure Ukpebor, Sade Ajayi",
+  "author": "Ofure Ukpebor, Sade Ajayi, Shola Abimbola",
   "license": "ISC"
 }

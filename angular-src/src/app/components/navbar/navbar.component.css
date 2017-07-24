@@ -1,0 +1,101 @@
+/* Nav-bar components styling
+*/
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+.navbar-brand {
+  color: #fff;
+  font-size: 3em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  margin-bottom: 0;
+
+
+}
+div.navbar.navbar-inverse{
+   margin-bottom: 2rem;
+}
+.navbar-inverse {
+    background-color: rgba(217, 35, 15, 0);
+    border-color: rgba(217, 35, 15, 0);
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+ul.nav.navbar-nav.navbar-right > li {
+  display: inline-block;
+}
+ul.nav.navbar-nav.navbar-right > li + li {
+  margin-left: 20px;
+}
+ul.nav.navbar-nav.navbar-right > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+}
+
+ul.nav.navbar-nav.navbar-right > li > a:hover,
+ul.nav.navbar-nav.navbar-right > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  
+  border-bottom-color: rgba(255,255,255,.25);
+  
+}
+ul.nav.navbar-nav.navbar-right> .active > a,
+ul.nav.navbar-nav.navbar-right > .active > a:hover,
+ul.nav.navbar-nav.navbar-right > .active > a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* Since positioning the image, we need to help out the caption */
+/*
+.top-section{
+  top: 0;
+  left: 0;
+  min-width: 100%;
+
+}
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+
+    float: right;
+  }
+*/
+/* Declare heights because of positioning of img element */
+
+@media (min-width: 768px) {
+  .navbar-brand {
+    float: left;
+  }
+  ul.nav.navbar-nav.navbar-right {
+
+    float: right;
+  }
+
+}
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .site-wrapper-inner {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+
+  
+
+}
