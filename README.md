@@ -1,6 +1,7 @@
 # WATADO
 
-To currently run application:
+### To currently run application:
+
 1. Open your terminal and navigate to where you want the app to be downloaded to.
 2. Clone the app to the folder like so: git clone https://bitbucket.org/sadeajayi/watado 
 3. run "node app.js"
