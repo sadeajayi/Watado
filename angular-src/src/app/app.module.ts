@@ -12,9 +12,9 @@ const appRoutes: Routes = [
   {path: 'map-page', component: MapPageComponent},
   {path: 'about', component: AboutComponent},
   {path: 'meet-the-team', component: MeetTheTeamComponent},
-  {path: 'contact', component: ContactComponent},
   {path: 'footer', component: FooterComponent},
-  {path: 'middle-section', component: MiddleSectionComponent}
+  {path: 'middle-section', component: MiddleSectionComponent},
+  {path: 'main-section', component: MainSectionComponent}
   
 ]
 
@@ -26,9 +26,9 @@ import { HomeComponent } from './components/home/home.component';
 import { MapPageComponent } from './components/map-page/map-page.component';
 import { AboutComponent } from './components/about/about.component';
 import { MeetTheTeamComponent } from './components/meet-the-team/meet-the-team.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MiddleSectionComponent } from './components/middle-section/middle-section.component';
+import { MainSectionComponent } from './components/main-section/main-section.component';
 
 @NgModule({
   declarations: [
@@ -40,9 +40,10 @@ import { MiddleSectionComponent } from './components/middle-section/middle-secti
     MapPageComponent,
     AboutComponent,
     MeetTheTeamComponent,
-    ContactComponent,
     FooterComponent,
-    MiddleSectionComponent
+    MiddleSectionComponent,
+    MainSectionComponent,
+
   ],
   imports: [
     BrowserModule,

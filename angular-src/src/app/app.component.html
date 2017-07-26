@@ -4,16 +4,24 @@
    <!-- Navbar elements are in this first div -->
     <app-navbar></app-navbar>
     <div class="container">
+
       <!-- Routes to links in nav bar -->
       <router-outlet></router-outlet>
+
+      <!-- Middle section of the page-->  
+
     </div>
 
-    <!-- Middle section of the page-->  
+    <main>
+      <app-middle-section></app-middle-section>
+      <!-- Main section of the page-->  
 
-    <div class="middle">
-    <app-middle-section></app-middle-section>
-    </div>
+      <div class="main-section">
+      <app-main-section></app-main-section>
+      
+      </div>
 
+    </main>
     <!-- Footer -->
     <app-footer></app-footer>
 

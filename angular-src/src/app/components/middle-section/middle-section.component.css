@@ -1,13 +1,33 @@
-.site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
-  /*padding: 50px;*/
+.parallax-container{
+    position: inherit;
+    padding: 50px;
 }
 
-.jumbotron{
-    background:rgba(244, 244, 244, 0);
+.parallax{
+
+  background: url("../../app/img/header.png");
+  background-size: cover;
+  
+}
+
+.cover-heading{
+    text-align: center;
 }
 
 .lead{
+    text-align: center;
     font-style: italic;
+}
+
+.signup{
+    text-align: center;
+
+}
+.waves-effect.waves-light.btn-large{
+    background-color: #0089ec; 
+    border-radius: 10px;
+}
+@media (max-width: 768px){
+
+ 
 }

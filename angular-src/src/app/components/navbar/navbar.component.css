@@ -2,6 +2,26 @@
 */
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
+.brand-logo{
+  float: left;
+  margin-bottom: 0;
+  padding-left: 3%;
+}
+nav{
+  background-color: #0089ec;
+  border:  none;
+  box-shadow: none;
+}
+
+.right.hide-on-med-and-down{
+  padding-right: 3%; 
+}
+
+.nav-wrapper{
+    background: rgba(217, 35, 15, 0);
+    border-color: rgba(217, 35, 15, 0);
+}
+/*
 .navbar-brand {
   color: #fff;
   font-size: 3em;
@@ -11,15 +31,16 @@
 
 
 }
-div.navbar.navbar-inverse{
+.nav-wrapper{
    margin-bottom: 2rem;
 }
-.navbar-inverse {
+.nav-wrapper{
     background-color: rgba(217, 35, 15, 0);
     border-color: rgba(217, 35, 15, 0);
 }
+*/
 
-/* Padding for spacing */
+/* Padding for spacing 
 .inner {
   padding: 30px;
 }
@@ -35,25 +56,12 @@ ul.nav.navbar-nav.navbar-right > li > a {
   padding-left: 0;
   font-size: 16px;
   font-weight: bold;
-  color: #fff; /* IE8 proofing */
+  color: #fff; /* IE8 proofing
   color: rgba(255,255,255,.75);
   border-bottom: 2px solid transparent;
 }
 
-ul.nav.navbar-nav.navbar-right > li > a:hover,
-ul.nav.navbar-nav.navbar-right > li > a:focus {
-  background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  
-  border-bottom-color: rgba(255,255,255,.25);
-  
-}
-ul.nav.navbar-nav.navbar-right> .active > a,
-ul.nav.navbar-nav.navbar-right > .active > a:hover,
-ul.nav.navbar-nav.navbar-right > .active > a:focus {
-  color: #fff;
-  border-bottom-color: #fff;
-}
+ */
 
 /* Since positioning the image, we need to help out the caption */
 /*
@@ -74,11 +82,10 @@ ul.nav.navbar-nav.navbar-right > .active > a:focus {
 /* Declare heights because of positioning of img element */
 
 @media (min-width: 768px) {
-  .navbar-brand {
+  .navbrand-logo {
     float: left;
   }
-  ul.nav.navbar-nav.navbar-right {
-
+  #nav-mobile {
     float: right;
   }
 
@@ -92,9 +99,7 @@ ul.nav.navbar-nav.navbar-right > .active > a:focus {
     top: 0;
   }
   /* Start the vertical centering */
-  .site-wrapper-inner {
-    vertical-align: middle;
-  }
+
 
   
 
