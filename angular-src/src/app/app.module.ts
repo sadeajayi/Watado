@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FacebookModule } from 'ngx-facebook';
+import { FormControl , FormsModule, ReactiveFormsModule} from "@angular/forms";
+
+import { AgmCoreModule } from '@agm/core';
+
 
 const appRoutes: Routes = [
 
@@ -30,6 +34,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MiddleSectionComponent } from './components/middle-section/middle-section.component';
 import { MainSectionComponent } from './components/main-section/main-section.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +54,13 @@ import { MainSectionComponent } from './components/main-section/main-section.com
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+    FacebookModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDQ5I8N8B_YQoG535XH5R6rhdCLH3DC9mk',
+      libraries: ["places"]
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
