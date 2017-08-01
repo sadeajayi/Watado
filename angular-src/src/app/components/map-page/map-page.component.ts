@@ -81,64 +81,13 @@ markerDragEnd(m: marker, $event: MouseEvent) {
     //marker
     var marker = new google.maps.Marker();
 
-
-
     //set current position
     //this.setCurrentPosition();
 
-    //load Places Autocomplete
-    /*
-    this.mapsAPILoader.load().then(() => {
-      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        types: ["address"]
-      });
-      let marker =  new google.maps.Marker({ 
-        draggable: true,
-        animation: google.maps.Animation.DROP,
-        position: map.center,
-        map: map,
-        title:"Your Location"
-      });
-      autocomplete.addListener("place_changed", () => {
-        this.ngZone.run(() => {
-          //get the place result
-          var input = document.getElementById('pac-input');
-          var autocomplete = new google.maps.places.Autocomplete(input);
-
-          // Bind the map's bounds (viewport) property to the autocomplete object,
-          // so that the autocomplete requests use the current map bounds for the
-          // bounds option in the request.
-          autocomplete.bindTo('bounds', map);
-          var place =  google.maps.places.PlaceResult = autocomplete.getPlace();
-
-          
-          //verify result
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-
-          //set latitude, longitude and zoom
-          this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
-          this.zoom = 15;
-        });
-      });
-    });
+   
     */
   }
 
-  /*
-  private setCurrentPosition() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 15;
-         
-      });
-    }
-  }
-  */
 }
 
 interface marker {
