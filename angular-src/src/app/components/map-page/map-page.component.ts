@@ -1,6 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
-import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+
 
 import { BrowserModule } from '@angular/platform-browser';
 import { FormControl } from "@angular/forms";
@@ -60,8 +60,7 @@ markerDragEnd(m: marker, $event: MouseEvent) {
   public searchElementRef: ElementRef;
   */
   constructor(
-    private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+
   ) {}
 
   ngOnInit() {

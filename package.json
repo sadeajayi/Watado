@@ -1,6 +1,7 @@
 {
   "name": "watado",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "Watado realtime review app",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
@@ -26,14 +27,28 @@
     "request": "^2.75.0"
   },
   "main": "app.js",
+=======
+  "description": "watado app",
+  "main": "index.js",
+>>>>>>> origin/master
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "test": "mocha test",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://sadeajayi@bitbucket.org/sadeajayi/watado.git"
+    "url": "https://bitbucket.org/sadeajayi/watado/src"
   },
-  "author": "Ofure Ukpebor, Sade Ajayi, Shola Abimbola",
-  "license": "ISC"
+  "keywords": [
+    "watado"
+  ],
+  "author": "watado team",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "express-handlebars": "^3.0.0"
+  }
 }
