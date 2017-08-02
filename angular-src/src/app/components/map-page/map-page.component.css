@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 .sebm-google-map-container {
   height: 500px;
+=======
+agm-map {
+
+  height: 500px;
+  
+>>>>>>> 6562fe63a691a1a71d43d51cf4e49d5b0ab37965
 }
 
 .elements{
@@ -7,7 +14,10 @@
     border-style: solid;
 }
 
+<<<<<<< HEAD
 /* Was for autocomplete search box for map */
+=======
+>>>>>>> 6562fe63a691a1a71d43d51cf4e49d5b0ab37965
   .pac-card {
       margin: 10px 10px 0 0;
       border-radius: 2px 0 0 2px;

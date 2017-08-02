@@ -5,9 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { FacebookModule } from 'ngx-facebook';
 import { FormControl , FormsModule, ReactiveFormsModule} from "@angular/forms";
 
+<<<<<<< HEAD
 /*import { AgmCoreModule, AgmMarker } from '@agm/core';*/
 import {AgmCoreModule} from "angular2-google-maps/core";
 import {MarkerService} from "./services/marker.service";
+=======
+import { AgmCoreModule } from '@agm/core';
+
+>>>>>>> 6562fe63a691a1a71d43d51cf4e49d5b0ab37965
 
 const appRoutes: Routes = [
 
@@ -59,10 +64,16 @@ import { MainSectionComponent } from './components/main-section/main-section.com
     RouterModule.forRoot(appRoutes),
     FacebookModule.forRoot(),
     AgmCoreModule.forRoot({
+<<<<<<< HEAD
       apiKey: 'AIzaSyBfW8ETNs6vnLAlGqcqHIZg52NI9lupHxM',
       libraries: ["places"]
     })
     
+=======
+      apiKey: 'AIzaSyDQ5I8N8B_YQoG535XH5R6rhdCLH3DC9mk',
+      libraries: ["places"]
+    })
+>>>>>>> 6562fe63a691a1a71d43d51cf4e49d5b0ab37965
   ],
   providers: [MarkerService],
   bootstrap: [AppComponent]
