@@ -101,7 +101,6 @@ export class MapPageComponent {
     //set current position
     //this.setCurrentPosition();
 
-<<<<<<< HEAD
     //load Places Autocomplete
     /*
     this.mapsAPILoader.load().then(() => {
@@ -140,9 +139,6 @@ export class MapPageComponent {
         });
       });
     });
-=======
-   
->>>>>>> 6562fe63a691a1a71d43d51cf4e49d5b0ab37965
     */
   }
 
@@ -160,7 +156,6 @@ export class MapPageComponent {
   */
 }
 
-<<<<<<< HEAD
 //Marker Type
 interface marker {
   name?: string;
@@ -170,11 +165,3 @@ interface marker {
 }
 
 
-=======
-interface marker {
-	lat: number;
-	long: number;
-	draggable:boolean;
-}
-
->>>>>>> 6562fe63a691a1a71d43d51cf4e49d5b0ab37965
