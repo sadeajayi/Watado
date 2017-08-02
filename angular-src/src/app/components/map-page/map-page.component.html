@@ -1,3 +1,96 @@
-<p>
-  map-page works!
-</p>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+
+<div class="container">
+<<<<<<< HEAD
+    <div class="row">
+      <h1>Map Generated</h1>
+      <div id="map" > 
+
+        <sebm-google-map
+          [latitude]="lat"
+          [longitude]="lng"
+          [zoom]="zoom"
+          [disableDefaultUI]= false
+          (mapClick)="mapClicked($event)"
+          >
+          <sebm-google-map-marker
+            *ngFor="let m of markers, let i = index"
+            (markerClick)="clickedMarker(m,i)"
+            [latitude]="m.lat"
+            [longitude]="m.lng"
+            [markerDraggable]="m.draggable"
+            (dragEnd)="markerDragEnd(m, $event)"
+          >
+            <sebm-google-map-info-window>
+              <strong>name</strong>
+            </sebm-google-map-info-window>
+          </sebm-google-map-marker>
+        </sebm-google-map>
+      </div>
+    </div>   
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add New Marker</h3>
+        </div>
+        <div class="panel-body">
+          <form (submit)="addMarker()">
+            <label>Location Name</label>
+            <input type="text" [(ngModel)]="markerName" name="markerName">
+
+            <label>Latitude</label>
+            <input type="text" [(ngModel)]="markerLat" name="markerLat">
+
+            <label>Longitude</label>
+            <input type="text" [(ngModel)]="markerLng" name="markerLng">
+
+            <label>Draggable</label>
+            <select [(ngModel)]="markerDraggable" name="markerDraggable">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+
+            <input  type="submit" value="Map It!">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+=======
+      <h1>Map Generated</h1>
+      <div class="map"> 
+
+        <agm-map 
+          [latitude]="lat" 
+          [longitude]="long" 
+          [scrollwheel]="false" 
+          [zoom]="zoom"
+          [disableDefaultUI]="false"
+          (mapClick)="mapClicked($event)">
+          
+          <agm-marker 
+            *ngFor="let m of markers"
+            (markerClick)="clickedMarker(m.label, i)"
+            [latitude]="m.lat" 
+            [longitude]="i.long"
+            [markerDraggable]="draggable"
+            (dragEnd)="markerDragEnd(m, $event)">
+          
+          <agm-info-window>
+            <strong>more info</strong>
+          </agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </div>
+       
+</div>
+
+
+
+
+>>>>>>> 6562fe63a691a1a71d43d51cf4e49d5b0ab37965

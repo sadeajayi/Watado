@@ -1,8 +1,36 @@
 {
   "name": "watado",
   "version": "1.0.0",
+<<<<<<< HEAD
+  "description": "Watado realtime review app",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.1",
+    "cors": "^2.8.4",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.5",
+    "mocha": "^3.0.2",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.11.3",
+    "morgan": "^1.7.0",
+    "ngx-facebook": "^2.4.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "request": "^2.75.0"
+  },
+  "main": "app.js",
+=======
   "description": "watado app",
   "main": "index.js",
+>>>>>>> origin/master
   "scripts": {
     "test": "mocha test",
     "start": "node index.js"

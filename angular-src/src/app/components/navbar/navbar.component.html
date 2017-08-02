@@ -1,38 +1,18 @@
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo "><i class="material-icons">comment</i>Watado</a>
+      <a [routerLink]="['/']" class="brand-logo "><i class="material-icons">comment</i>Watado</a>
+
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a [routerLink]="['/about']">About</a></li>
-          <li><a [routerLink]="['/meet-the-team']">Meet The Team</a></li>
-          <li><a [routerLink]="['/login']">Login</a></li>
-          <li><a [routerLink]="['/register']">Sign Up</a></li>
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/about']">About</a></li>
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/meet-the-team']">Meet The Team</a></li>
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login</a></li>
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="modal-trigger btn nav-sign-up "  [routerLink]="['/register']">Sign Up</a></li>
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/map-page']">MAP</a></li>
       </ul>
     </div>
   </nav>
  
- 
-   <!--  
-    <div class= "inner">
-      <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-            <a class="navbar-brand" href="#">Watado</a>
-          </div>
 
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a [routerLink]="['/home']">Home</a></li>
-              <li><a [routerLink]="['/about']">About</a></li>
-              <li><a [routerLink]="['/meet-the-team']">Meet The Team</a></li>
-              <li><a [routerLink]="['/login']">Login</a></li>
-              <li><a [routerLink]="['/register']">Sign Up</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav> 
-    </div>    
-     -->
      
 
 

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types" : ["node", "lodash", "express"],
     "baseUrl": "",
     "declaration": false,
     "emitDecoratorMetadata": true,

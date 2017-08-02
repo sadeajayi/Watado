@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.0",
     "@angular/common": "^2.3.1",
     "@angular/compiler": "^2.3.1",
     "@angular/core": "^2.3.1",
@@ -20,13 +21,18 @@
     "@angular/platform-browser": "^2.3.1",
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
+    "angular2-google-maps": "^0.17.0",
+    "angular2-mapbox": "^0.9.0",
     "core-js": "^2.4.1",
+    "ngx-facebook": "^2.4.0",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
+    "uglify-js": "^3.0.27",
     "zone.js": "^0.7.2"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^2.3.1",
+    "@types/googlemaps": "^3.26.17",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.28.3",

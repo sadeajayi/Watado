@@ -12,73 +12,29 @@ nav{
   border:  none;
   box-shadow: none;
 }
+li{
+  color: orange;
 
+}
 .right.hide-on-med-and-down{
   padding-right: 3%; 
+}
+
+nav ul li.active {
+   background: rgba(217, 35, 15, 0);
 }
 
 .nav-wrapper{
     background: rgba(217, 35, 15, 0);
     border-color: rgba(217, 35, 15, 0);
 }
-/*
-.navbar-brand {
-  color: #fff;
-  font-size: 3em;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  margin-bottom: 0;
 
-
-}
-.nav-wrapper{
-   margin-bottom: 2rem;
-}
-.nav-wrapper{
-    background-color: rgba(217, 35, 15, 0);
-    border-color: rgba(217, 35, 15, 0);
-}
-*/
-
-/* Padding for spacing 
-.inner {
-  padding: 30px;
+.nav-sign-up{
+  border: 2px solid white;
+  border-radius: 25px;
+  background: rgba(217, 35, 15, 0);
 }
 
-ul.nav.navbar-nav.navbar-right > li {
-  display: inline-block;
-}
-ul.nav.navbar-nav.navbar-right > li + li {
-  margin-left: 20px;
-}
-ul.nav.navbar-nav.navbar-right > li > a {
-  padding-right: 0;
-  padding-left: 0;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff; /* IE8 proofing
-  color: rgba(255,255,255,.75);
-  border-bottom: 2px solid transparent;
-}
-
- */
-
-/* Since positioning the image, we need to help out the caption */
-/*
-.top-section{
-  top: 0;
-  left: 0;
-  min-width: 100%;
-
-}
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-
-    float: right;
-  }
-*/
 /* Declare heights because of positioning of img element */
 
 @media (min-width: 768px) {
@@ -92,15 +48,10 @@ ul.nav.navbar-nav.navbar-right > li > a {
 }
 
 @media (min-width: 768px) {
-  /* Pull out the header and footer */
+  /* Start the vertical centering */
   .site-wrapper-inner {
     position: fixed;
     width: 100%;
     top: 0;
   }
-  /* Start the vertical centering */
-
-
-  
-
 }
