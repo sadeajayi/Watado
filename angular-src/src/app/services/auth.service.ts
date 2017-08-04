@@ -10,7 +10,7 @@ export class AuthService {
   isDev:boolean;
 
   constructor(private http:Http) { 
-    this.isDev = false;
+    this.isDev = true;
   }
 
   registerUser(user){
