@@ -18,8 +18,8 @@ export class Init{
         },
         {
           name: 'Company Three',
-          lat: 42.858279,
-          lng: -70.930498,
+          lat: 6.5244,
+          lng: 3.3792,
           draggable: false
         }
       ]
@@ -42,8 +42,8 @@ export class Init{
         },
         {
           name: 'Company Three',
-          lat: 42.858279,
-          lng: -70.930498,
+          lat: 6.4471,
+          lng: 3.4182,
           draggable: false
         }
       ]

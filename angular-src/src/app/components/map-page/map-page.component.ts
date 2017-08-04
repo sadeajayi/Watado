@@ -1,4 +1,4 @@
-import { Component, NgModule, NgZone} from '@angular/core';
+import { Component, NgModule, NgZone, OnInit} from '@angular/core';
 import {MarkerService} from "../../services/marker.service";
 import {AgmCoreModule, MapsAPILoader} from '@agm/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -11,11 +11,11 @@ declare var google: any;
   templateUrl: './map-page.component.html',
   styleUrls: ['./map-page.component.css'],
 })
-export class MapPageComponent {
+export class MapPageComponent implements OnInit {
 
-  lat: number =  6.5244;
-  lng: number = 3.3792;
-  zoom: number = 13;
+  lat: number =  6.4471;
+  lng: number = 3.4182;
+  zoom: number = 14;
 
     //Values
   markerName: string;

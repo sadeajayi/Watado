@@ -9,6 +9,17 @@ import { FormControl , FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AgmCoreModule} from "angular2-google-maps/core";
 import {MarkerService} from "./services/marker.service";
 
+import { AppComponent } from './app.component';
+/*import { NavbarComponent } from './components/navbar/navbar.component';*/
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { MapPageComponent } from './components/map-page/map-page.component';
+import { AboutComponent } from './components/about/about.component';
+import { MeetTheTeamComponent } from './components/meet-the-team/meet-the-team.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
 import {FlashMessagesModule} from 'angular2-flash-messages';
@@ -25,15 +36,6 @@ const appRoutes: Routes = [
   
 ]
 
-import { AppComponent } from './app.component';
-/*import { NavbarComponent } from './components/navbar/navbar.component';*/
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './components/home/home.component';
-import { MapPageComponent } from './components/map-page/map-page.component';
-import { AboutComponent } from './components/about/about.component';
-import { MeetTheTeamComponent } from './components/meet-the-team/meet-the-team.component';
-import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({

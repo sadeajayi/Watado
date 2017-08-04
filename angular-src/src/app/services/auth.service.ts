@@ -18,14 +18,14 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     //let ep = this.prepEndpoint('users/register');
-    return this.http.post('/', user,{headers: headers})
+    return this.http.post('/users/register', user,{headers: headers})
       .map(res => res.json());
   }
     authenticateUser(user){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     //let ep = this.prepEndpoint('users/authenticate');
-    return this.http.post('/', user,{headers: headers})
+    return this.http.post('/users/authenticate', user,{headers: headers})
       .map(res => res.json());
   }
 
@@ -41,7 +41,7 @@ export class AuthService {
 
   storeUserData(token, user){
     localStorage.setItem('id_token', token);
-    localStorage.setItem('user', JSON.parse(JSON.stringify(user || null)));
+    localStorage.setItem('user', JSON.stringify(user || null));
     this.authToken = token;
     this.user = user;
   }
@@ -50,8 +50,15 @@ export class AuthService {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
   }
+
   loggedIn(){
-    return tokenNotExpired();
+    return tokenNotExpired('id_token');
+  }
+
+  logout(){
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
   }
 
   prepEndpoint(ep){

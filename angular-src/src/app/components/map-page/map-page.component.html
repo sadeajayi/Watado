@@ -1,4 +1,8 @@
-
+<nav>
+    <div class="nav-wrapper">
+      <a [routerLink]="['/']" class="brand-logo center"><i class="material-icons">comment</i>Watado</a>
+    </div>
+</nav>
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 
@@ -35,7 +39,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Add New Marker</h3>
+          <h3 class="panel-title">Add New Pin</h3>
         </div>
         <div class="panel-body">
           <form (submit)="addMarker()">

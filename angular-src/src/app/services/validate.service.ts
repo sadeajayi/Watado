@@ -6,8 +6,9 @@ export class ValidateService {
   constructor() { }
 
   validateRegister(user){
-    if(user.name == undefined || user.email == undefined || user.username == undefined || user.password == undefined){
-      return false;
+    if(user.name == undefined || user.email == undefined || user.username == undefined || user.password == undefined ||
+    user.passwordConf == undefined ){
+      return true;
     } else {
       return true;
     }
@@ -23,6 +24,9 @@ export class ValidateService {
       var err = new Error('Passwords do not match.');
       console.log("passwords don't match");
       return err;
+    }
+    else{
+      return user.password;
     }
   }
 

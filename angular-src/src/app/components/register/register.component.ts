@@ -38,10 +38,6 @@ export class RegisterComponent implements OnInit {
       return false;
     }
 
-    if(!this.validateService.validatePassword(user.password)){
-      this.flashMessage.show('Passwords dont match', {cssClass: 'alert-danger', timeout: 3000});
-      return false;
-    }
     // Validate Email
     if(!this.validateService.validateEmail(user.email)){
       this.flashMessage.show('Please use a valid email', {cssClass: 'alert-danger', timeout: 3000});

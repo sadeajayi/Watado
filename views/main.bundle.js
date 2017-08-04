@@ -93,8 +93,9 @@ var ValidateService = (function () {
     function ValidateService() {
     }
     ValidateService.prototype.validateRegister = function (user) {
-        if (user.name == undefined || user.email == undefined || user.username == undefined || user.password == undefined) {
-            return false;
+        if (user.name == undefined || user.email == undefined || user.username == undefined || user.password == undefined ||
+            user.passwordConf == undefined) {
+            return true;
         }
         else {
             return true;
@@ -109,6 +110,9 @@ var ValidateService = (function () {
             var err = new Error('Passwords do not match.');
             console.log("passwords don't match");
             return err;
+        }
+        else {
+            return user.password;
         }
     };
     ValidateService = __decorate([
@@ -203,19 +207,19 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core__ = __webpack_require__(556);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_marker_service__ = __webpack_require__(345);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_validate_service__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_auth_service__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__guards_auth_guard__ = __webpack_require__(547);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(538);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__ = __webpack_require__(543);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_register_register_component__ = __webpack_require__(546);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_home_home_component__ = __webpack_require__(542);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_map_page_map_page_component__ = __webpack_require__(544);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_about_about_component__ = __webpack_require__(540);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_meet_the_team_meet_the_team_component__ = __webpack_require__(545);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_footer_footer_component__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(538);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_login_login_component__ = __webpack_require__(543);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_register_register_component__ = __webpack_require__(546);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_home_home_component__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_map_page_map_page_component__ = __webpack_require__(544);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_about_about_component__ = __webpack_require__(540);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_meet_the_team_meet_the_team_component__ = __webpack_require__(545);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_validate_service__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_auth_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__ = __webpack_require__(547);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -238,38 +242,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
+
+
+
+
 var appRoutes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_15__components_home_home_component__["a" /* HomeComponent */] },
-    { path: 'register', component: __WEBPACK_IMPORTED_MODULE_14__components_register_register_component__["a" /* RegisterComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__["a" /* LoginComponent */] },
-    { path: 'map-page', component: __WEBPACK_IMPORTED_MODULE_16__components_map_page_map_page_component__["a" /* MapPageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_11__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'about', component: __WEBPACK_IMPORTED_MODULE_17__components_about_about_component__["a" /* AboutComponent */] },
-    { path: 'meet-the-team', component: __WEBPACK_IMPORTED_MODULE_18__components_meet_the_team_meet_the_team_component__["a" /* MeetTheTeamComponent */] },
-    { path: 'footer', component: __WEBPACK_IMPORTED_MODULE_19__components_footer_footer_component__["a" /* FooterComponent */] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_11__components_home_home_component__["a" /* HomeComponent */] },
+    { path: 'register', component: __WEBPACK_IMPORTED_MODULE_10__components_register_register_component__["a" /* RegisterComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_9__components_login_login_component__["a" /* LoginComponent */] },
+    { path: 'map-page', component: __WEBPACK_IMPORTED_MODULE_12__components_map_page_map_page_component__["a" /* MapPageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'about', component: __WEBPACK_IMPORTED_MODULE_13__components_about_about_component__["a" /* AboutComponent */] },
+    { path: 'meet-the-team', component: __WEBPACK_IMPORTED_MODULE_14__components_meet_the_team_meet_the_team_component__["a" /* MeetTheTeamComponent */] },
+    { path: 'footer', component: __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__["a" /* FooterComponent */] },
 ];
-
-
-
-
-
-
-
-
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
                 //NavbarComponent,
-                __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__components_register_register_component__["a" /* RegisterComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__components_home_home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__components_map_page_map_page_component__["a" /* MapPageComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__components_about_about_component__["a" /* AboutComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__components_meet_the_team_meet_the_team_component__["a" /* MeetTheTeamComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__components_footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__components_login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__components_register_register_component__["a" /* RegisterComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__components_home_home_component__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__components_map_page_map_page_component__["a" /* MapPageComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__components_about_about_component__["a" /* AboutComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__components_meet_the_team_meet_the_team_component__["a" /* MeetTheTeamComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__["a" /* FooterComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -277,15 +281,15 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["HttpModule"],
                 __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot(appRoutes),
-                __WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages__["FlashMessagesModule"],
+                __WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages__["FlashMessagesModule"],
                 __WEBPACK_IMPORTED_MODULE_4_ngx_facebook__["a" /* FacebookModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core__["AgmCoreModule"].forRoot({
                     apiKey: 'AIzaSyBfW8ETNs6vnLAlGqcqHIZg52NI9lupHxM',
                     libraries: ["places"]
                 })
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_8__services_validate_service__["a" /* ValidateService */], __WEBPACK_IMPORTED_MODULE_7__services_marker_service__["a" /* MarkerService */], __WEBPACK_IMPORTED_MODULE_9__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_11__guards_auth_guard__["a" /* AuthGuard */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_16__services_validate_service__["a" /* ValidateService */], __WEBPACK_IMPORTED_MODULE_7__services_marker_service__["a" /* MarkerService */], __WEBPACK_IMPORTED_MODULE_17__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_19__guards_auth_guard__["a" /* AuthGuard */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
@@ -523,9 +527,9 @@ var MapPageComponent = (function () {
     /*Gets pre-defined markers from MarkerServices and adds them to the map */
     function MapPageComponent(markerService) {
         this.markerService = markerService;
-        this.lat = 6.5244;
-        this.lng = 3.3792;
-        this.zoom = 13;
+        this.lat = 6.4471;
+        this.lng = 3.4182;
+        this.zoom = 14;
         this.markers = [];
         this.markers = this.markerService.getMarkers();
     }
@@ -738,10 +742,6 @@ var RegisterComponent = (function () {
             this.flashMessage.show('Please fill in all fields', { cssClass: 'alert-danger', timeout: 3000 });
             return false;
         }
-        if (!this.validateService.validatePassword(user.password)) {
-            this.flashMessage.show('Passwords dont match', { cssClass: 'alert-danger', timeout: 3000 });
-            return false;
-        }
         // Validate Email
         if (!this.validateService.validateEmail(user.email)) {
             this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
@@ -846,8 +846,8 @@ var Init = (function () {
                 },
                 {
                     name: 'Company Three',
-                    lat: 42.858279,
-                    lng: -70.930498,
+                    lat: 6.5244,
+                    lng: 3.3792,
                     draggable: false
                 }
             ];
@@ -870,8 +870,8 @@ var Init = (function () {
                 },
                 {
                     name: 'Company Three',
-                    lat: 42.858279,
-                    lng: -70.930498,
+                    lat: 6.4471,
+                    lng: 3.4182,
                     draggable: false
                 }
             ];
@@ -934,14 +934,14 @@ var AuthService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         //let ep = this.prepEndpoint('users/register');
-        return this.http.post('/', user, { headers: headers })
+        return this.http.post('http://localhost:3000/users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         //let ep = this.prepEndpoint('users/authenticate');
-        return this.http.post('/', user, { headers: headers })
+        return this.http.post('http://localhost:3000/users/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getProfile = function () {
@@ -955,7 +955,7 @@ var AuthService = (function () {
     };
     AuthService.prototype.storeUserData = function (token, user) {
         localStorage.setItem('id_token', token);
-        localStorage.setItem('user', JSON.parse(JSON.stringify(user || null)));
+        localStorage.setItem('user', JSON.stringify(user || null));
         this.authToken = token;
         this.user = user;
     };
@@ -964,7 +964,12 @@ var AuthService = (function () {
         this.authToken = token;
     };
     AuthService.prototype.loggedIn = function () {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__["tokenNotExpired"])();
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__["tokenNotExpired"])('id_token');
+    };
+    AuthService.prototype.logout = function () {
+        this.authToken = null;
+        this.user = null;
+        localStorage.clear();
     };
     AuthService.prototype.prepEndpoint = function (ep) {
         if (this.isDev) {
@@ -1079,7 +1084,7 @@ module.exports = "\n<nav>\n    <div class=\"nav-wrapper\">\n      <a [routerLink
 /***/ 728:
 /***/ (function(module, exports) {
 
-module.exports = "\n<!-- this creates a google map on the page with the given lat/lng from -->\n<!-- the component as the initial center of the map: -->\n\n<div class=\"container\">\n\n    <div class=\"row\">\n      <h1>Map Generated</h1>\n      <div id=\"map\"> \n\n        <sebm-google-map\n          [latitude]=\"lat\"\n          [longitude]=\"lng\"\n          [zoom]=\"zoom\"\n          [disableDefaultUI]= false\n          (mapClick)=\"mapClicked($event)\"\n          >\n          <sebm-google-map-marker\n            *ngFor=\"let m of markers, let i = index\"\n            (markerClick)=\"clickedMarker(m,i)\"\n            [latitude]=\"m.lat\"\n            [longitude]=\"m.lng\"\n            [markerDraggable]=\"m.draggable\"\n            (dragEnd)=\"markerDragEnd(m, $event)\"\n          >\n            <sebm-google-map-info-window>\n              <strong>name</strong>\n            </sebm-google-map-info-window>\n          </sebm-google-map-marker>\n        </sebm-google-map>\n      </div>\n    </div>   \n\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">\n          <h3 class=\"panel-title\">Add New Marker</h3>\n        </div>\n        <div class=\"panel-body\">\n          <form (submit)=\"addMarker()\">\n            <label>Location Name</label>\n            <input type=\"text\" [(ngModel)]=\"markerName\" name=\"markerName\">\n\n            <label>Latitude</label>\n            <input type=\"text\" [(ngModel)]=\"markerLat\" name=\"markerLat\">\n\n            <label>Longitude</label>\n            <input type=\"text\" [(ngModel)]=\"markerLng\" name=\"markerLng\">\n\n            <label>Draggable</label>\n            <select [(ngModel)]=\"markerDraggable\" name=\"markerDraggable\">\n              <option value=\"no\">No</option>\n              <option value=\"yes\">Yes</option>\n            </select>\n\n            <input  type=\"submit\" value=\"Map It!\">\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n \n\n\n\n\n"
+module.exports = "<nav>\n    <div class=\"nav-wrapper\">\n      <a [routerLink]=\"['/']\" class=\"brand-logo center\"><i class=\"material-icons\">comment</i>Watado</a>\n    </div>\n</nav>\n<!-- this creates a google map on the page with the given lat/lng from -->\n<!-- the component as the initial center of the map: -->\n\n<div class=\"container\">\n\n    <div class=\"row\">\n      <h1>Map Generated</h1>\n      <div id=\"map\"> \n\n        <sebm-google-map\n          [latitude]=\"lat\"\n          [longitude]=\"lng\"\n          [zoom]=\"zoom\"\n          [disableDefaultUI]= false\n          (mapClick)=\"mapClicked($event)\"\n          >\n          <sebm-google-map-marker\n            *ngFor=\"let m of markers, let i = index\"\n            (markerClick)=\"clickedMarker(m,i)\"\n            [latitude]=\"m.lat\"\n            [longitude]=\"m.lng\"\n            [markerDraggable]=\"m.draggable\"\n            (dragEnd)=\"markerDragEnd(m, $event)\"\n          >\n            <sebm-google-map-info-window>\n              <strong>name</strong>\n            </sebm-google-map-info-window>\n          </sebm-google-map-marker>\n        </sebm-google-map>\n      </div>\n    </div>   \n\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">\n          <h3 class=\"panel-title\">Add New Pin</h3>\n        </div>\n        <div class=\"panel-body\">\n          <form (submit)=\"addMarker()\">\n            <label>Location Name</label>\n            <input type=\"text\" [(ngModel)]=\"markerName\" name=\"markerName\">\n\n            <label>Latitude</label>\n            <input type=\"text\" [(ngModel)]=\"markerLat\" name=\"markerLat\">\n\n            <label>Longitude</label>\n            <input type=\"text\" [(ngModel)]=\"markerLng\" name=\"markerLng\">\n\n            <label>Draggable</label>\n            <select [(ngModel)]=\"markerDraggable\" name=\"markerDraggable\">\n              <option value=\"no\">No</option>\n              <option value=\"yes\">Yes</option>\n            </select>\n\n            <input  type=\"submit\" value=\"Map It!\">\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n \n\n\n\n\n"
 
 /***/ }),
 
