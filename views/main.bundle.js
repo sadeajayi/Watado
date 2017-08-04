@@ -927,7 +927,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
-        this.isDev = false;
+        this.isDev = true;
     }
     AuthService.prototype.registerUser = function (user) {
         console.log('TRYING TO REGISTER');
