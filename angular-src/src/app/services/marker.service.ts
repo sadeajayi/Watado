@@ -42,7 +42,6 @@ export class MarkerService extends Init{
 
   }
 
-
   removeMarker(marker){
     var markers = JSON.parse(localStorage.getItem('markers'));
 

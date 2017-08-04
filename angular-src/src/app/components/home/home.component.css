@@ -1,3 +1,66 @@
+@import url(https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext);
+
+.brand-logo{
+  float: left;
+  margin-bottom: 0;
+  padding-left: 3%;
+
+}
+.material-icons{
+    font-size: 2.4rem; 
+}
+nav{
+  background-color: rgba(0, 137, 236, 0);
+  border: none;
+  box-shadow: none;
+}
+li{
+  color: orange;
+
+}
+.right.hide-on-med-and-down{
+  padding-right: 3%; 
+}
+
+nav ul li.active {
+   background: rgba(217, 35, 15, 0);
+}
+
+.nav-wrapper{
+    background: rgba(217, 35, 15, 0);
+    border-color: rgba(217, 35, 15, 0);
+}
+
+.nav-sign-up{
+  /*border: 2px solid white;*/
+  border-radius: 25px;
+  background:#2196F3;
+}
+
+/* Declare heights because of positioning of img element */
+
+@media (min-width: 768px) {
+  .navbrand-logo {
+    float: left;
+    
+  }
+.material-icons{
+    font-size: 2.4rem; 
+}
+  #nav-mobile {
+    float: right;
+  }
+
+}
+
+@media (min-width: 768px) {
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+}
 .parallax-container{
     position: inherit;
     padding: 50px;
@@ -5,17 +68,22 @@
 
 .parallax{
 
-  background: url("../../app/img/header.png");
-  background-size: cover;
-  
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(255, 152, 0, 0.83), rgba(255, 193, 7, 0.96)),
+               url("../../app/img/beach.png") center no-repeat;
+  background-size: cover;             
 }
+
 
 .btn-floating{
     width: 20%;
 }
 
 .cover-heading{
+
+    font-family: lato;
     text-align: center;
+    font-size: 5.56rem;
+    color: white;
 }
 
 .lead{
@@ -41,6 +109,6 @@
 
 .page-footer{
   color: #999; /* IE8 proofing */
-  background-color: #9e9e9e;
+  background-color: #1289e8;
   width: 100%;
 }

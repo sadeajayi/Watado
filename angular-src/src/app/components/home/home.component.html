@@ -1,16 +1,33 @@
+<!-- Nav bar-->  
+<nav>
+    <div class="nav-wrapper">
+      <a [routerLink]="['/']" class="brand-logo "><i class="material-icons">comment</i>Watado</a>
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/about']">About</a></li>
+          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/meet-the-team']">Meet The Team</a></li>
+          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login</a></li>
+          <li *ngIf="!authService.loggedIn()"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="modal-trigger btn nav-sign-up "  [routerLink]="['/register']">Sign Up</a></li>
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/map-page']">MAP</a></li>
+      </ul>
+    </div>
+  </nav>
+ 
+
 <!-- Top section-->
   <div class="parallax-container">
     <div class="parallax"> 
     </div>
     <div class="container">
-      <h2 class="cover-heading">Discover what Lagos has </h2>
-      <h2 class="cover-heading">in Store for you</h2>
+      <h2 class="cover-heading">Discover what Lagos has in</h2>
+      <h2 class="cover-heading">Store for you</h2>
       <p class="lead">Let Watado be your modern-day town crier</p>
       <p class="signup">
-        <a href="#" class="waves-effect waves-light btn-large ">Sign Up</a>
+        <a class="waves-effect waves-light btn-large " [routerLink]="['/register']">Sign Up</a>
       </p>
     </div>  
   </div>
+
 
 <!-- Main section-->
 <div class="main-section">

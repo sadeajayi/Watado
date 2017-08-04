@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FacebookService, LoginResponse } from 'ngx-facebook';
-
+import { ValidateService } from '../../services/validate.service';
+import {AuthService} from '../../services/auth.service';
+import {FlashMessagesService} from 'angular2-flash-messages';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,39 +10,56 @@ import { FacebookService, LoginResponse } from 'ngx-facebook';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor(private fb: FacebookService) { 
-
-    console.log('Initializing Facebook');
-
-    fb.init({
-      appId: '1927971220769787',
-      version: 'v2.9'
-    });
-  }
-   /**
-   * Login with minimal permissions. This allows you to see their public profile only.
-   */
-  login() {
-    this.fb.login()
-      .then((res: LoginResponse) => {
-        console.log('Logged in', res);
-      })
-      .catch(this.handleError);
-  }
-
-  firstname: String;
-  lastname: String;
   email: String;
+  username: String;
   password: String;
- 
+  passwordConf: String;
+
+  constructor(
+    private validateService:ValidateService, 
+    private flashMessage:FlashMessagesService,
+    private authService:AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
+  onRegisterSubmit(){
+    const user = {
+      email: this.email,
+      username: this.username,
+      password: this.password,
+      passwordConf: this.passwordConf
+    }
+     // Required Fields
+    if(!this.validateService.validateRegister(user)){
+      this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
+      return false;
+    }
 
-  private handleError(error) {
-    console.error('Error processing action', error);
-  }
+    if(!this.validateService.validatePassword(user.password)){
+      this.flashMessage.show('Passwords dont match', {cssClass: 'alert-danger', timeout: 3000});
+      return false;
+    }
+    // Validate Email
+    if(!this.validateService.validateEmail(user.email)){
+      this.flashMessage.show('Please use a valid email', {cssClass: 'alert-danger', timeout: 3000});
+      return false;
+    }
+
+    // Register user
+    this.authService.registerUser(user).subscribe(data => {
+      if(data.success){
+        this.flashMessage.show('You are now registered and can log in', {cssClass: 'alert-success', timeout: 3000});
+        this.router.navigate(['/login']);
+      } else {
+        console.log('TRYING TO GO WRONG');
+        this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+        this.router.navigate(['/register']);
+      }
+    });
+
+  }  
 
 }

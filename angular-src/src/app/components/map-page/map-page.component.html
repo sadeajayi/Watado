@@ -6,7 +6,7 @@
 
     <div class="row">
       <h1>Map Generated</h1>
-      <div id="map" > 
+      <div id="map"> 
 
         <sebm-google-map
           [latitude]="lat"
@@ -31,7 +31,7 @@
       </div>
     </div>   
 
-<div class="row">
+  <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -62,32 +62,8 @@
   </div>
 </div>
 
-      <h1>Map Generated</h1>
-      <div class="map"> 
+ 
 
-        <agm-map 
-          [latitude]="lat" 
-          [longitude]="long" 
-          [scrollwheel]="false" 
-          [zoom]="zoom"
-          [disableDefaultUI]="false"
-          (mapClick)="mapClicked($event)">
-          
-          <agm-marker 
-            *ngFor="let m of markers"
-            (markerClick)="clickedMarker(m.label, i)"
-            [latitude]="m.lat" 
-            [longitude]="i.long"
-            [markerDraggable]="draggable"
-            (dragEnd)="markerDragEnd(m, $event)">
-          
-          <agm-info-window>
-            <strong>more info</strong>
-          </agm-info-window>
-          </agm-marker>
-        </agm-map>
-      </div>
-       
-</div>
+
 
 

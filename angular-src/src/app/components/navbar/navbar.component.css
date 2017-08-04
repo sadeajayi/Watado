@@ -8,9 +8,9 @@
   padding-left: 3%;
 }
 nav{
-  background-color: #0089ec;
-  border:  none;
-  box-shadow: none;
+  background-color: rgba(0, 137, 236, 0);
+  border: none;
+  /*box-shadow: none;*/
 }
 li{
   color: orange;
@@ -30,9 +30,9 @@ nav ul li.active {
 }
 
 .nav-sign-up{
-  border: 2px solid white;
+  /*border: 2px solid white;*/
   border-radius: 25px;
-  background: rgba(217, 35, 15, 0);
+  background:#2196F3;
 }
 
 /* Declare heights because of positioning of img element */
