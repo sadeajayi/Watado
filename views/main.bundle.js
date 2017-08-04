@@ -934,14 +934,14 @@ var AuthService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         //let ep = this.prepEndpoint('users/register');
-        return this.http.post('http://localhost:3000/users/register', user, { headers: headers })
+        return this.http.post('/users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         //let ep = this.prepEndpoint('users/authenticate');
-        return this.http.post('http://localhost:3000/users/authenticate', user, { headers: headers })
+        return this.http.post('/users/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getProfile = function () {
@@ -1077,7 +1077,7 @@ module.exports = "<!-- Nav bar-->  \n<nav>\n    <div class=\"nav-wrapper\">\n   
 /***/ 727:
 /***/ (function(module, exports) {
 
-module.exports = "\n<nav>\n    <div class=\"nav-wrapper\">\n      <a [routerLink]=\"['/']\" class=\"brand-logo center\"><i class=\"material-icons\">comment</i>Watado</a>\n    </div>\n\t</nav>\n\t\n<div class=\"container\">\n\t<h2 class=\"page-header\">Login</h2>\n\t<div class=\"row\">\n\t\t<form (submit)=\"onLoginSubmit()\" class=\"col s8\">\n\t\t\t<div class=\"row\">\n        <div class=\"input-field col s8\">\n\t\t\t\t\t<label>E-mail</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"email\" name=\"email\">\n\t\t\t\t</div>\n\t\t\t</div>\t\n\t\t\t<div class=\"row\">\n        <div class=\"input-field col s8\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label>Password</label>\n\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\t\t\n\t\t\t<input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n\t\t</form>\n\t</div>\n</div> \t"
+module.exports = "\n<nav>\n    <div class=\"nav-wrapper\">\n      <a [routerLink]=\"['/']\" class=\"brand-logo center\"><i class=\"material-icons\">comment</i>Watado</a>\n    </div>\n</nav>\n\t\n<div class=\"container\">\n\t<h2 class=\"page-header\">Login</h2>\n\t<div class=\"row\">\n\t\t<form (submit)=\"onLoginSubmit()\" class=\"col s8\">\n\t\t\t<div class=\"row\">\n        <div class=\"input-field col s8\">\n\t\t\t\t\t<label>E-mail</label>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"email\" name=\"email\">\n\t\t\t\t</div>\n\t\t\t</div>\t\n\t\t\t<div class=\"row\">\n        <div class=\"input-field col s8\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label>Password</label>\n\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\t\t\n\t\t\t<input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n\t\t</form>\n\t</div>\n</div> \t"
 
 /***/ }),
 
