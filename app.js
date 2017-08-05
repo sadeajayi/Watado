@@ -1,5 +1,4 @@
 var express = require('express');
-var app = express();
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var mongoose = require('mongoose');
@@ -13,8 +12,6 @@ const config = require('./config/database');
 mongoose.connect('mongodb://heroku_362jnj2q:uiqngj64r6pjvf41vmnquo32go@ds135983.mlab.com:35983/heroku_362jnj2q');
 var db = mongoose.connection;
 
-var users = require('./routes/users');
-
 // On Connection
 mongoose.connection.on('connected', () => {
   console.log('Connected to database '+ config.database);
@@ -26,6 +23,9 @@ db.once('openUri', function () {
   // we're connected!
   console.log('Database error: ');
 });
+
+var app = express();
+var users = require('./routes/users');
 
 //use sessions for tracking logins
 app.use(session({
@@ -43,7 +43,7 @@ var port = process.env.PORT || 3000;
 app.use(cors());
 
 // serve static files from template
-app.use(express.static(path.join(__dirname, '/views')));
+app.use(express.static(path.join(__dirname, 'views')));
 
 // parse incoming requests
 app.use(bodyParser.json());
@@ -70,7 +70,7 @@ app.get('*', (req, res) => {
 });
 
 // GET route after registering
-/*
+
 app.get('/authenticate', function (req, res, next) {
 //router.get('/map-page', function (req, res, next) {
   User.findById(req.session.userId)
@@ -88,7 +88,7 @@ app.get('/authenticate', function (req, res, next) {
       }
     });
 });
-*/
+
 // listen on port 3000
 /*
 app.listen(3000, function () {
