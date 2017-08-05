@@ -70,6 +70,7 @@ app.get('*', (req, res) => {
 });
 
 // GET route after registering
+/*
 app.get('/authenticate', function (req, res, next) {
 //router.get('/map-page', function (req, res, next) {
   User.findById(req.session.userId)
@@ -87,7 +88,7 @@ app.get('/authenticate', function (req, res, next) {
       }
     });
 });
-
+*/
 // listen on port 3000
 /*
 app.listen(3000, function () {
