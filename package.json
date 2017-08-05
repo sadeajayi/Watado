@@ -28,6 +28,7 @@
     "lodash": "^4.17.4",
     "mongoose": "^4.11.5",
     "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
     "routes": "^2.1.0",
     "session": "^0.1.0"
   }
