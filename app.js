@@ -98,8 +98,8 @@ if (process.env.NODE_ENV !== 'production') {
 require('dotenv').config()
 }
 
-app.listen(process.env.port, () => {
-  console.log('Server started on port ');
+app.listen(port, () => {
+  console.log('Server started on port ' + port);
 });
 
 
