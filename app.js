@@ -43,7 +43,7 @@ var port = process.env.PORT || 3000;
 app.use(cors());
 
 // serve static files from template
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, '/views')));
 
 // parse incoming requests
 app.use(bodyParser.json());
