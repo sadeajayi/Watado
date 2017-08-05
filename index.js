@@ -37,7 +37,7 @@ app.use(session({
   })
 }));
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 // CORS Middleware
 app.use(cors());
