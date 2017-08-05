@@ -9,7 +9,14 @@ const config = require('./config/database');
 
 //connect to MongoDB
 //mongoose.connect('mongodb://localhost:27017/watado');
-mongoose.connect('mongodb://heroku_362jnj2q:uiqngj64r6pjvf41vmnquo32go@ds135983.mlab.com:35983/heroku_362jnj2q');
+
+mongoose.connect('mongodb://heroku_362jnj2q:uiqngj64r6pjvf41vmnquo32go@ds135983.mlab.com:35983/heroku_362jnj2q', function(err) {
+    if (err) {
+        console.log('Not connected to the database: ' + err);
+    } else {
+        console.log('Successfully connected to MongoDB');
+    }
+});
 var db = mongoose.connection;
 
 // On Connection
