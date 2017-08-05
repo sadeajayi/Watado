@@ -37,7 +37,7 @@ app.use(session({
   })
 }));
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 'mongodb://heroku_362jnj2q:uiqngj64r6pjvf41vmnquo32go@ds135983.mlab.com:35983/heroku_362jnj2q';
 
 // CORS Middleware
 app.use(cors());
