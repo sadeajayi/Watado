@@ -31,8 +31,4 @@
     "routes": "^2.1.0",
     "session": "^0.1.0"
   },
-  "devDependencies": {
-    "dotenv": "^4.0.0",
-    "express-handlebars": "^3.0.0"
-  }
 }
