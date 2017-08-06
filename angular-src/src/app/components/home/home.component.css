@@ -69,7 +69,7 @@ nav ul li.active {
 .parallax{
 
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(255, 152, 0, 0.83), rgba(255, 193, 7, 0.96)),
-               url("/app/img/beach.png") center no-repeat;
+               url("beach.png") center no-repeat;
   background-size: cover;             
 }
 
