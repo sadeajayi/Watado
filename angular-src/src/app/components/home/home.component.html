@@ -2,7 +2,7 @@
 <nav>
     <div class="nav-wrapper">
       <a [routerLink]="['/']" class="brand-logo "><i class="material-icons">comment</i>Watado</a>
-
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/about']">About</a></li>
           <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/meet-the-team']">Meet The Team</a></li>
@@ -10,6 +10,13 @@
           <li *ngIf="!authService.loggedIn()"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="modal-trigger btn nav-sign-up "  [routerLink]="['/register']">Sign Up</a></li>
           <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/map-page']">MAP</a></li>
       </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/about']">About</a></li>
+          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/meet-the-team']">Meet The Team</a></li>
+          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login</a></li>
+          <li *ngIf="!authService.loggedIn()"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="modal-trigger btn nav-sign-up "  [routerLink]="['/register']">Sign Up</a></li>
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/map-page']">MAP</a></li>
+      </ul>    
     </div>
   </nav>
  
@@ -17,9 +24,10 @@
 <!-- Top section-->
   <div class="parallax-container">
     <div class="parallax"> 
+      <img src="./img/beach.png">
     </div>
     <div class="container">
-      <h2 class="cover-heading">Discover what Lagos has in</h2>
+      <span class="cover-heading">Discover what Lagos has in Store for you</span>
       <h2 class="cover-heading">Store for you</h2>
       <p class="lead">Let Watado be your modern-day town crier</p>
       <p class="signup">

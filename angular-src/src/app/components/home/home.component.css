@@ -37,6 +37,13 @@ nav ul li.active {
   background:#2196F3;
 }
 
+.cover-heading{
+
+    font-family: lato;
+    text-align: center;
+    font-size: 5.56rem;
+    color: white;
+}
 /* Declare heights because of positioning of img element */
 
 @media (min-width: 768px) {
@@ -62,14 +69,14 @@ nav ul li.active {
   }
 }
 .parallax-container{
-    position: inherit;
+    position: fixed;
     padding: 50px;
 }
 
 .parallax{
 
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(255, 152, 0, 0.83), rgba(255, 193, 7, 0.96)),
-               url("../beach.png") center no-repeat;
+               url("./img/beach.png") center no-repeat;
   background-size: cover;             
 }
 
@@ -99,7 +106,7 @@ nav ul li.active {
     background-color: #0089ec; 
     border-radius: 10px;
 }
-@media (max-width: 768px){
+@media (max-width: 1024){
 
 }
 
