@@ -79,7 +79,7 @@ nav ul li.active {
 .parallax{
 
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(255, 152, 0, 0.83), rgba(255, 193, 7, 0.96)),
-               url("./img/beach.png") center no-repeat;
+               url(../../app/img/beach.png) center no-repeat;
   background-size: cover;             
 }
 
@@ -92,7 +92,7 @@ nav ul li.active {
 
     font-family: lato;
     text-align: center;
-    font-size: 5.56rem;
+    font-size: 4.56rem;
     color: white;
 }
 
