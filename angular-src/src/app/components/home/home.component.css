@@ -18,6 +18,9 @@ li{
   color: orange;
 
 }
+.lead{
+  font-size: 2rem;
+}
 .right.hide-on-med-and-down{
   padding-right: 3%; 
 }
@@ -69,7 +72,7 @@ nav ul li.active {
   }
 }
 .parallax-container{
-    position: fixed;
+    position: inherit;
     padding: 50px;
 }
 
