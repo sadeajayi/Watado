@@ -56,7 +56,7 @@ var server = require('http').Server(app);
 // Socket.io for real time communication
 var io = require('socket.io')(server);
 
-var port = process.env.PORT || 1800;
+var port = process.env.PORT || 3000;
 
 
 // CORS Middleware
