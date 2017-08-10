@@ -5,40 +5,107 @@
 </nav>
 
 <div class="container">
-  <h2 class="page-header">Register</h2>  
-    <p class="m-b-lg font-thin">Join us and start view what people are currently saying about places around you</p>
     <div class="row">
-      <form (submit)="onRegisterSubmit()" class="col s8" >
-          
-          <button (click)="login()" class="btn btn-lg btn-primary btn-block">
-          Sign Up with Facebook
-          </button>
-
+          <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+          <h3>Sign Up</h3>
+            <form  (submit)="onRegisterSubmit()"  class="col s12">
+              
           <div class="row">
-            <div class="input-field col s8">
+            <div class="input-field ">
               <input id="email" type="email" [(ngModel)]="email" name="email" class="form-control">
               <label for="email">Email</label>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s8">
+            <div class="input-field ">
               <input id="user_name" type="text" [(ngModel)]="username" name="username"class="form-control">
               <label for="user">Username</label>
             </div>
           </div> 
           <div class="row">
-            <div class="input-field col s8">
+            <div class="input-field ">
               <input id="password" type="password" [(ngModel)]="password" name="password" class="form-control">
               <label for="password">Password</label>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s8">
+            <div class="input-field ">
               <input id="password_conf" type="password" [(ngModel)]="passwordConf" name="passwordConf" class="form-control">
               <label for="password_Conf">Confirm Password</label>
             </div>
           </div>
-          <input type="submit" class="btn btn-primary" value="Register"> 
+          <br>
+          <div>
+            <input type="submit" class="btn btn-primary" value="Register">
+          </div>  
+          <div class="section">
+            <p><a href="#"> By clicking register, I agree to your terms</a></p>
+          </div>
+            </form>
+          </div>
+        
+    </div>  
+  </div>
+<!-- 
+<div class="login-wrapper">
+  <div class="container">
+        <div class="signin-form profile">
+          <h3>Sign Up</h3>
+          <div class="login-form">
+            <form  (submit)="onRegisterSubmit()">
+              <input id="email" type="email" [(ngModel)]="email" name="email" placeholder="E-mail" required="">
+              <input type="text" name="username" [(ngModel)]="username"  placeholder="Username" required="">
+              <input type="password" name="password" [(ngModel)]="password" placeholder="Password" required="">
+              <input type="password" name="passwordConf" [(ngModel)]="passwordConf" placeholder="Confirm Password" required="">
+              <div>
+              <input type="submit" class="btn btn-primary" value="Register">
+              </div>
+            </form>
+          </div>
+          <p><a href="#"> By clicking register, I agree to your terms</a></p>
+      </div>
+      <div class="clear"></div>
+  </div>      
+   
+  <div class="container">
+    	<div class="signup-form">
+      <form (submit)="onRegisterSubmit()" >
+           <p class="m-b-lg font-thin">Join us and start view what people are currently saying about places around you</p>
+          <button (click)="login()" class="btn btn-lg btn-primary btn-block">
+          Sign Up with Facebook
+          </button>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" [(ngModel)]="email" name="email" class="form-control">
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="user_name" type="text" [(ngModel)]="username" name="username"class="form-control">
+              <label for="user">Username</label>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" [(ngModel)]="password" name="password" class="form-control">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password_conf" type="password" [(ngModel)]="passwordConf" name="passwordConf" class="form-control">
+              <label for="password_Conf">Confirm Password</label>
+            </div>
+          </div>
+          <br>
+          <div>
+            <input type="submit" class="btn btn-primary" value="Register">
+          </div>  
+          <div class="section">
+            </div>
       </form>
-    </div>
+    	</div>        
 </div>
+    -->

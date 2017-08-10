@@ -5,7 +5,9 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+//var http = require('http');
 var cors = require('cors');
+
 const config = require('./config/database');
 
 //connect to MongoDB
@@ -45,13 +47,34 @@ app.use(session({
   })
 }));
 
-var port = process.env.PORT || 3000;
+/**
+ * Create HTTP Server
+ */
+//var server = http.createServer(app);
+var server = require('http').Server(app);
+
+// Socket.io for real time communication
+var io = require('socket.io')(server);
+
+var port = process.env.PORT || 1800;
+
 
 // CORS Middleware
 app.use(cors());
 
+
 // serve static files from template
 app.use(express.static(path.join(__dirname, 'views')));
+
+io.on('connection', (socket )=>{
+  console.log('new connection made');
+  // Test Messages
+  socket.on('add-marker', (data) => {
+   // console.log(data.msg);
+    io.emit('marker-added', data);
+  });
+
+});
 
 // parse incoming requests
 app.use(bodyParser.json());
@@ -64,7 +87,7 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
-// include routes
+// include api routes
 
 app.use('/users', users);
 
@@ -105,7 +128,7 @@ app.listen(3000, function () {
 */
 
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log('Server started on port ' + port);
 });
 

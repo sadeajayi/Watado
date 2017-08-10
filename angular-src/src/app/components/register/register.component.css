@@ -1,9 +1,290 @@
-nav{
-  background-color: #1289e8;
-  border: none;
-  /*box-shadow: none;*/
+body{
+      background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+    height: 100vh
 }
+nav{
+  background-color: rgba(0, 137, 236, 0);
+  border: none;
+  box-shadow: none;
+}
+
+.login-wrapper{
+      background: linear-gradient(56.94deg,#81D76D -4.06%,#80D66E 12.24%,#67B788 53.05%,#458CAB 87.51%,#2D6EC4 109.39%);
+    height: 100vh;
+}
+
+  
 .btn.btn-lg.btn-primary.btn-block{
     background-color: #0a78d6;
 }
+  .form{
+        margin-top: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 0.3s ease-in-out 0.9s forwards;
+  }
 
+  /*
+.input-field{
+    width: 100%;
+    border: 0;
+    font-size: 20px;
+    font-weight: 300;
+    outline: 0;
+    margin: 1em 0 2.5em;
+}
+
+form{
+  text-align: center;
+  background-color: rgba(52, 73, 94, 0.7);
+  border-radius: 4px;
+  position: absolute;
+  margin: 0 auto; 
+  margin-top: 150px;
+}
+
+*/
+@media (min-width: 768px) {
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+}
+.container{
+  max-width:500px;
+  max-width: 500px;
+  height: 100%;
+  margin: 10vh auto;
+  position: inherit;
+}
+
+.contain{
+
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(255, 152, 0, 0.83), rgba(255, 193, 7, 0.96)),
+               url(../../app/img/beach.png) center no-repeat;
+  background-size: cover;             
+}
+
+.signin-form {
+    background-size: cover;
+    padding: 2em 2em;
+	   text-align: center;
+    background-color: white;
+    border-radius: 25px ;
+}
+
+.login-form {
+    margin: 1em 0 2.5em;
+}
+
+/*--//signin-form--*/
+
+
+/*-- agileits --*/
+/*---- responsive-design -----*/
+@media(max-width:1440px){
+.main {
+    width: 56%;
+}
+}
+@media(max-width:1366px){
+.main {
+    width: 59%;
+}
+}
+@media(max-width:1280px){
+h1 {
+    font-size: 2.5em;
+}
+.main {
+    width: 63%;
+}
+}
+@media(max-width:1080px){
+.main {
+    width: 74%;
+	margin: 2em auto;
+}
+}
+@media(max-width:1024px){
+.main {
+    width: 82%;
+}
+.signin-form {
+    padding: 3em 2.5em;
+}
+}
+@media(max-width:991px){
+.main {
+    width: 85%;
+}
+}
+@media(max-width:900px){
+.main {
+    width: 93%;
+}
+}
+@media(max-width:800px){
+.main {
+    width: 51%;
+}
+.w3 {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 5%;
+}
+.agile {
+    float: none;
+    width: 100%;
+}
+.signin-form p a {
+    line-height: 1.8em;
+}
+}
+@media(max-width:768px){
+.main {
+    width: 53%;
+}
+}
+@media(max-width:736px){
+.main {
+    width: 55%;
+}
+}
+/*-- w3layouts --*/
+@media(max-width:667px){
+.main {
+    width: 61%;
+}
+}
+@media(max-width:640px){
+.main {
+    width: 64%;
+}
+}
+@media(max-width:600px){
+.main {
+    width: 68%;
+}
+}
+@media(max-width:568px){
+.main {
+    width: 72%;
+}
+}
+@media(max-width:480px){
+.main {
+    width: 78%;
+}
+.header-social a.face {
+    width: 27%;
+}
+.header-social a.goog {
+    width: 21%;
+}
+.w3 {
+    margin-bottom: 0%;
+}
+.signin-form input[type="text"], .signin-form input[type="password"], .signin-form input[type="email"]  {
+    width: 50%;
+}
+h1 {
+    font-size: 2.2em;
+}
+.profile {
+    margin-top: 2em;
+}
+.signin-form {
+    padding: 2em 2em;
+}
+.copyright p {
+    font-size: 0.9em;
+}
+/*-- agileits --*/
+}
+@media(max-width:414px){
+.signin-form input[type="text"], .signin-form input[type="password"], .signin-form input[type="email"] {
+    width: 50%;
+}
+.signin-form {
+    padding: 2em 1.5em;
+}
+.header-social a.face {
+    width: 25%;
+}
+.header-social a.goog {
+    width: 19%;
+}
+.tp {
+    margin: 1.7em 0 0;
+}
+.header-social {
+    margin-bottom: 1em;
+}
+.signin-form h3 {
+    margin-bottom: 1em;
+}
+.login-form {
+    margin: 1em 0 1.5em;
+}
+}
+@media(max-width:384px){
+h1 {
+    font-size: 2em;
+}
+.header-social a.face {
+    width: 22%;
+}
+.header-social a.goog {
+    width: 17%;
+}
+}
+@media(max-width:375px){
+.main {
+    width: 79%;
+}
+.header-social a.goog {
+    width: 15%;
+}
+}
+@media(max-width:320px){
+h1 {
+    font-size: 1.6em;
+}
+.main {
+    width: 89%;
+    margin: 1.5em auto;
+}
+.login-form {
+    margin: 1em 0 1.5em;
+}
+.signin-form {
+    padding: 1.5em 1.5em;
+}
+.signin-form h3 {
+    font-size: 1.5em;
+}
+.signin-form input[type="text"], .signin-form input[type="password"], .signin-form input[type="email"]  {
+    width:50%;
+}
+.signin-form input[type="submit"] {
+    padding: 0.7em 0;
+    font-size: 0.9em;
+}
+.signin-form p a {
+    font-size: 0.9em;
+}
+
+.signin-form p a {
+    line-height: 1.5em;
+}
+.copyright {
+    margin: 1em;
+}
+}
+/*--//responsive-design---*/
