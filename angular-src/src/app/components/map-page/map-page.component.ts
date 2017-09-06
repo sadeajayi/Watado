@@ -68,7 +68,7 @@ export class MapPageComponent implements OnInit {
         lng: $event.coords.lng,
         draggable: false
       }
-      this.markers.push(newMarker); 
+      //this.markers.push(newMarker); 
       this._socketService.emit('add-marker', newMarker);
   }
 
