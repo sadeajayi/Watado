@@ -14,6 +14,14 @@ main {
   padding-left: 3%;
 
 }
+nav .brand-logo {
+  position: absolute;
+  color: #655959;
+  display: inline-block;
+  font-size: 3.1rem;
+  font-weight: 700;
+  padding: 0;
+}
 .material-icons{
     font-size: 2.4rem; 
 }
@@ -71,6 +79,7 @@ h2 {
     font-family: lato;
     text-align: center;
     font-size: 5.56rem;
+    font-weight: 800;
     color: white;
 }
 /* Declare heights because of positioning of img element */
@@ -81,7 +90,7 @@ h2 {
     
   }
 .material-icons{
-    font-size: 2.4rem; 
+    font-size: 3.4rem; 
 }
   #nav-mobile {
     float: right;
@@ -107,13 +116,13 @@ h2 {
 }
 .parallax-container{
     position: inherit;
-    padding: 50px;
+    overflow: inherit;
 }
 
 .parallax{
 
-  background: linear-gradient( rgba(255, 152, 0, 0.6), rgba(255, 152, 0, 0.85), #ff7e22),   
-               url(./assets/lagos.png) center no-repeat;
+  background: linear-gradient( 5deg,rgba(255, 152, 0, 0.6), rgba(255, 152, 0, 0.85), rgba(255, 126, 34, 0.86)),        
+              url(./assets/lagos.png) center no-repeat;
   background-size: cover;             
 }
 
@@ -163,8 +172,20 @@ h2 {
 
 .page-footer{
   color: #999; /* IE8 proofing */
-  background-color: #1289e8;
+  background-color: #e8e7e7;
   width: 100%;
   bottom: 0;
   position: inherit;
+}
+
+.grey-text.text-lighten-4 {
+  color: #000000 !important;
+}
+
+.white-text {
+  color: #1f1d1d !important;
+}
+
+.grey-text.text-lighten-3 {
+  color: #211f1f !important;
 }
