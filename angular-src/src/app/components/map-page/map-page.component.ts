@@ -103,7 +103,7 @@ export class MapPageComponent implements OnInit {
     }
 
     this.markers.push(newMarker);
-    //this.markerService.addMarker(newMarker);
+    this.markerService.addMarker(newMarker);
     this._socketService.emit('add-marker', newMarker);
   }
  
