@@ -1,7 +1,7 @@
 <!-- Nav bar-->  
 <nav>
     <div class="nav-wrapper">
-      <a [routerLink]="['/']" class="brand-logo "><i class="material-icons">comment</i>Watado</a>
+      <a [routerLink]="['/']" class="brand-logo "><i class="material-icons">comment</i>WATADO</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login</a></li>

@@ -14,9 +14,12 @@ main {
   padding-left: 3%;
 
 }
+.row{
+  overflow: overlay;
+}
 nav .brand-logo {
   position: absolute;
-  color: #655959;
+  color: #ffffff;
   display: inline-block;
   font-size: 3.1rem;
   font-weight: 700;
@@ -36,6 +39,7 @@ li{
 }
 .lead{
   font-size: 2rem;
+  
 }
 .right.hide-on-med-and-down{
   padding-right: 3%; 
@@ -78,7 +82,7 @@ h2 {
 
     font-family: lato;
     text-align: center;
-    font-size: 5.56rem;
+    font-size: 4.50rem;
     font-weight: 800;
     color: white;
 }
@@ -121,8 +125,8 @@ h2 {
 
 .parallax{
 
-  background: linear-gradient( 5deg,rgba(255, 152, 0, 0.6), rgba(255, 152, 0, 0.85), rgba(255, 126, 34, 0.86)),        
-              url(./assets/lagos.png) center no-repeat;
+  background: linear-gradient( 5deg,rgba(33, 150, 243, 0.32), rgba(255, 152, 0, 0.85), rgba(255, 126, 34, 0.86)),  
+                url(./assets/lagos.png) center no-repeat;
   background-size: cover;             
 }
 
@@ -141,6 +145,7 @@ h2 {
 .lead{
     text-align: center;
     font-style: italic;
+    font-weight: 600;
 }
 
 .signup{
