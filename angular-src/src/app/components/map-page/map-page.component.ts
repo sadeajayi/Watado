@@ -88,6 +88,7 @@ export class MapPageComponent implements OnInit {
   }
 
   //Allows user add new marker to the map 
+  /*
   addMarker($event){
     if(this.markerDraggable == 'yes'){
       var isDraggable = true;
@@ -106,7 +107,7 @@ export class MapPageComponent implements OnInit {
     this.markerService.addMarker(newMarker);
     this._socketService.emit('add-marker', newMarker);
   }
- 
+ */
   ngOnInit() {
      
     this._socketService.on('marker-added', (marker:any) => {
