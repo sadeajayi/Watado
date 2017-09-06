@@ -1,30 +1,26 @@
-body{
-      background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
-    height: 100vh
-}
+
 nav{
   background-color: rgba(0, 137, 236, 0);
   border: none;
   box-shadow: none;
 }
-
-.login-wrapper{
-      background: linear-gradient(56.94deg,#81D76D -4.06%,#80D66E 12.24%,#67B788 53.05%,#458CAB 87.51%,#2D6EC4 109.39%);
-    height: 100vh;
+ 
+.btn.btn-primary{
+    background-color: #2196F3;
 }
 
-  
-.btn.btn-lg.btn-primary.btn-block{
-    background-color: #0a78d6;
+div.z-depth-1.grey.lighten-4.row {
+    border-radius: 25px;
 }
-  .form{
-        margin-top: 40px;
+
+.form{
+    margin-top: 40px;
     border-radius: 6px;
     overflow: hidden;
     opacity: 0;
     transform: translate3d(0, 500px, 0);
     animation: arrive 0.3s ease-in-out 0.9s forwards;
-  }
+}
 
   /*
 .input-field{
@@ -63,10 +59,7 @@ form{
 }
 
 .contain{
-
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(255, 152, 0, 0.83), rgba(255, 193, 7, 0.96)),
-               url(../../app/img/beach.png) center no-repeat;
-  background-size: cover;             
+           
 }
 
 .signin-form {

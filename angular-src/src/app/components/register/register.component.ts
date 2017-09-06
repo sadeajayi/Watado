@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
+  
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -16,14 +17,23 @@ export class RegisterComponent implements OnInit {
   passwordConf: String;
 
   constructor(
+    
     private validateService:ValidateService, 
     private flashMessage:FlashMessagesService,
     private authService:AuthService,
     private router: Router
-  ) { }
+  ) { 
+    //document.body.style.background = "linear-gradient(to right, #ffb75e, #ed8f03)";
+    //document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.background = "linear-gradient(to right, #ffb75e, #ed8f03)";
+    document.body.style.backgroundSize = "cover";
+ 
+  }
 
   ngOnInit() {
   }
+
 
   onRegisterSubmit(){
     const user = {

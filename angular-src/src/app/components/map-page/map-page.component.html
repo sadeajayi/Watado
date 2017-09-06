@@ -15,26 +15,42 @@
           <div class="form-group">
             <input id="autocomplete" placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
           </div>
-          <sebm-google-map
+          <div class="fixed-action-btn click-to-toggle">
+              <a class="btn-floating btn-large orange">
+                <i class="large material-icons">location_on</i>
+              </a>
+              <ul>
+									<li>
+                      <a href="#" class="btn-floating blue modal-trigger"><i class="material-icons">supervisor_account</i></a>
+                      <a href="#" class="btn-floating mobile-fab-tip modal-trigger">Search for a place to see number of pins dropped</a>
+                    </li> 
+                    <li>
+                        <a href="#" class="btn-floating blue modal-trigger"><i class="material-icons">my_location</i></a>
+                        <a href="#" class="btn-floating mobile-fab-tip modal-trigger">Drop a pin at your location</a>
+                      </li>   
+              </ul>
+            </div>
+          <agm-map
             [latitude]="lat"
             [longitude]="lng"
             [zoom]="zoom"
             [disableDefaultUI]= false
             (mapClick)="mapClicked($event)"
+            >  
+            <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m"
+            (markerClick)="clickedMarker($event)"
             >
-            <sebm-google-map-marker
-              *ngFor="let m of markers, let i = index"
-              (markerClick)="clickedMarker(m,i)"
-              [latitude]="m.lat"
-              [longitude]="m.lng"
-              [markerDraggable]="m.draggable"
-              (dragEnd)="markerDragEnd(m, $event)"
-            >
-              <sebm-google-map-info-window>
-                <strong>{{m.name}}</strong>
-              </sebm-google-map-info-window>
-            </sebm-google-map-marker>
-          </sebm-google-map>
+              <agm-marker
+                *ngFor="let m of markers, let i = index"
+                (markerClick)="clickedMarker(m,i)"
+                [latitude]="m.lat"
+                [longitude]="m.lng"
+                [markerDraggable]="m.draggable"
+                (dragEnd)="markerDragEnd(m, $event)"
+              >
+              </agm-marker>
+            </agm-marker-cluster>
+          </agm-map>
         </div>
       </div>    
 

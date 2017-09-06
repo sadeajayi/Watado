@@ -20,6 +20,7 @@
   "author": "watado team",
   "license": "ISC",
   "dependencies": {
+    "@agm/js-marker-clusterer": "^1.0.0-beta.1",
     "@types/lodash": "^4.14.50",
     "@types/socket.io-client": "^1.4.29",
     "bcrypt": "^1.0.2",
@@ -29,6 +30,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.5",
     "http-status": "^1.0.1",
+    "js-marker-clusterer": "^1.0.0",
     "jsonwebtoken": "^7.4.2",
     "lodash": "^4.17.4",
     "mongoose": "^4.11.5",

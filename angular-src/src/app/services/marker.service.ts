@@ -16,7 +16,7 @@ export class MarkerService extends Init{
   }
 
   addMarker(newMarker){
-    //fetch marker that are already there
+    //fetch markers that are already there
     var markers = JSON.parse(localStorage.getItem('markers'));
 
     // Push to array

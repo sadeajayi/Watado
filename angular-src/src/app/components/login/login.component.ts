@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {FlashMessagesService} from 'angular2-flash-messages';
+//import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+
 
 @Component({
   selector: 'app-login',
@@ -15,8 +17,16 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService:AuthService,
     private router:Router,
-    private flashMessage:FlashMessagesService
-  ) { }
+    private flashMessage:FlashMessagesService,
+   // public thisDialogRef: MdDialogRef<LoginComponent>, @Inject(MD_DIALOG_DATA) public data: string
+  ) { 
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundColor = "#1289e8";
+    document.body.style.backgroundSize = "cover";
+
+  }
+
+
 
   ngOnInit() {
   }
@@ -26,6 +36,7 @@ export class LoginComponent implements OnInit {
       email: this.email,
       password: this.password
     }
+
 
     this.authService.authenticateUser(user).subscribe(data => {
       if(data.success){

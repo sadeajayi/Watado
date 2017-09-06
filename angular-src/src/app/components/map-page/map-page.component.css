@@ -13,6 +13,17 @@ nav{
     border-style: solid;
 }
 
+.mobile-fab-tip {
+	position: fixed;
+	right: 85px;
+	padding:0px 0.5rem;
+	text-align: right;
+	background-color: #323232;
+	border-radius: 2px;
+	color: #FFF;
+	width:auto;
+}
+
 /* Was for autocomplete search box for map */
   .pac-card {
       margin: 10px 10px 0 0;

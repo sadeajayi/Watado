@@ -1,14 +1,20 @@
+//All Modules imported go under here
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NgZone } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FacebookModule } from 'ngx-facebook';
-import { FormControl , FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormControl , FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import { AgmJsMarkerClustererModule, ClusterManager } from "@agm/js-marker-clusterer";
+//import { MdCardModule, MdButtonModule, MdCheckboxModule, MdDialogModule } from '@angular/material';
+import {ModalModule} from 'ngx-modal';
 
-/*import { AgmCoreModule, AgmMarker } from '@agm/core';*/
-import {AgmCoreModule,  MapsAPILoader} from "angular2-google-maps/core";
-import {MarkerService} from "./services/marker.service";
 
+import { MapCluster } from './map-cluster';
+
+// All components imported go under here
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -18,14 +24,15 @@ import { AboutComponent } from './components/about/about.component';
 import { MeetTheTeamComponent } from './components/meet-the-team/meet-the-team.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-
-import {ValidateService} from './services/validate.service';
-import {AuthService} from './services/auth.service';
-import {FlashMessagesModule} from 'angular2-flash-messages';
-import {AuthGuard} from './guards/auth.guard';
+// All services imported go under here
+import { ValidateService } from './services/validate.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { MarkerService } from "./services/marker.service";
 
 //Importing socket-io services
 import { SocketService } from './components/shared/socket.service';
+import 'js-marker-clusterer/src/markerclusterer.js';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -37,12 +44,9 @@ const appRoutes: Routes = [
   {path: 'footer', component: FooterComponent},
 ]
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
-    //NavbarComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
@@ -50,6 +54,7 @@ const appRoutes: Routes = [
     AboutComponent,
     MeetTheTeamComponent,
     FooterComponent,
+    MapCluster,
 
   ],
   imports: [
@@ -63,10 +68,17 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBfW8ETNs6vnLAlGqcqHIZg52NI9lupHxM',
       libraries: ["places"]
-    })
-    
+    }),
+    AgmJsMarkerClustererModule,
+    ModalModule,
+    /* MdCardModule,
+    MdButtonModule, 
+    MdCheckboxModule, 
+    MdDialogModule
+    */
   ],
-  providers: [ValidateService,MarkerService, AuthService, AuthGuard, SocketService],
+  providers: [ValidateService, MarkerService, AuthService, AuthGuard,
+  SocketService, ClusterManager],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

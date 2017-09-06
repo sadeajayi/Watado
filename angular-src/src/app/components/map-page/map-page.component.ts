@@ -1,19 +1,28 @@
 import { Component, NgModule, NgZone, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {MarkerService} from "../../services/marker.service";
-import {AgmCoreModule, MapsAPILoader} from 'angular2-google-maps/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-//Importing socket-io services
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MapCluster } from '../../map-cluster';
+import { AgmJsMarkerClustererModule, ClusterManager } from "@agm/js-marker-clusterer";
+
+import 'js-marker-clusterer/src/markerclusterer.js';
+
+import {Http, HttpModule} from '@angular/http';
+
+//Importing socket-io services for real-time interactions
 import { SocketService } from '../shared/socket.service';
 
-
 declare var google: any;
+declare const MarkerClusterer;
 
 @Component({
   selector: 'app-map-page',
   templateUrl: './map-page.component.html',
   styleUrls: ['./map-page.component.css'],
+
 })
+
 export class MapPageComponent implements OnInit {
  // socket: SocketIOClient.Socket
 
@@ -28,7 +37,8 @@ export class MapPageComponent implements OnInit {
   markerLng: string;
   markerDraggable: string;
   markers: marker[] = [];
-   
+
+
  @ViewChild("search")
   public searchElementRef: ElementRef;
 
@@ -37,8 +47,9 @@ export class MapPageComponent implements OnInit {
     private markerService: MarkerService, 
     private _socketService: SocketService,
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+    private ngZone: NgZone,
   ) {
+    document.body.style.backgroundColor = "#FFFFFF";
      this.markers = this.markerService.getMarkers();
      //this.socket = io.connect();
   }
@@ -49,6 +60,7 @@ export class MapPageComponent implements OnInit {
   }
 
 /*Should render new marker onclick on map */
+
   mapClicked($event:any) {
       var newMarker = {
         name: 'Untitled',
@@ -60,7 +72,7 @@ export class MapPageComponent implements OnInit {
       this._socketService.emit('add-marker', newMarker);
   }
 
-    markerDragEnd(marker: any, $event:any){
+  markerDragEnd(marker: any, $event:any){
     console.log('dragEnd',marker,$event)
     var updMarker = {
       name: marker.name,
@@ -72,11 +84,11 @@ export class MapPageComponent implements OnInit {
     var newLat = $event.coords.lat;
     var newLng = $event.coords.lng;
 
-    this.markerService.updateMarker(updMarker, newLat, newLng)
+    this.markerService.updateMarker(updMarker, newLat, newLng);
   }
 
   //Allows user add new marker to the map 
-  addMarker(){
+  addMarker($event){
     if(this.markerDraggable == 'yes'){
       var isDraggable = true;
     }else{
@@ -92,44 +104,29 @@ export class MapPageComponent implements OnInit {
 
     this.markers.push(newMarker);
     this.markerService.addMarker(newMarker);
-
-      /*this._socketService.on('marker-added', (marker:any) => {
-        this.markers.push(marker);
-        //this.markerService.addMarker(marker);
-        //console.log(marker);
-        //console.log(this.markers);
-      });
-*/
-      this._socketService.emit('add-marker', newMarker);
-   // this.markerService.addMarker(newMarker);
+    this._socketService.emit('add-marker', newMarker);
   }
  
-
   ngOnInit() {
-
-
-      this._socketService.on('marker-added', (marker:any) => {
+     
+    this._socketService.on('marker-added', (marker:any) => {
         this.markers.push(marker);
-        //this.markerService.addMarker(marker);
-        //console.log(marker);
-        //console.log(this.markers);
+         
       });
-
     
+          
     this.zoom = 14;
     this.lat = 6.4471;
     this.lng =  3.4182;
 
     //create search FormControl
     this.searchControl = new FormControl();
-      /*
-    //marker
-    var marker = new google.maps.Marker();
-
+    /*
     //set current position
     //this.setCurrentPosition();
       */
-    //load Places Autocomplete
+
+    //load Google Places Autocomplete
     
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
@@ -139,7 +136,7 @@ export class MapPageComponent implements OnInit {
           south: 6.393351,
           west: 3.098273
       },
-        types: ["address"]
+        types: ["establishment"]
       });
 
       autocomplete.addListener("place_changed", () => {
@@ -162,7 +159,7 @@ export class MapPageComponent implements OnInit {
           //set latitude, longitude and zoom
           this.lat = place.geometry.location.lat();
           this.lng = place.geometry.location.lng();
-          this.zoom = 16;
+          this.zoom = 18;
         });
       });
     });

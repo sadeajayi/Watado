@@ -3,49 +3,49 @@
       <a [routerLink]="['/']" class="brand-logo center"><i class="material-icons">comment</i>Watado</a>
     </div>
 </nav>
-
-<div class="container">
-    <div class="row">
-          <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
-          <h3>Sign Up</h3>
-            <form  (submit)="onRegisterSubmit()"  class="col s12">
-              
-          <div class="row">
-            <div class="input-field ">
-              <input id="email" type="email" [(ngModel)]="email" name="email" class="form-control">
-              <label for="email">Email</label>
+  <div class="container">
+      <div class="row">
+            <div class="z-depth-1 grey lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+            <h3>Sign Up</h3>
+              <form  (submit)="onRegisterSubmit()"  class="col s12">
+                
+            <div class="row">
+              <div class="input-field ">
+                <input id="email" type="email" [(ngModel)]="email" name="email" class="form-control">
+                <label for="email">Email</label>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field ">
-              <input id="user_name" type="text" [(ngModel)]="username" name="username"class="form-control">
-              <label for="user">Username</label>
+            <div class="row">
+              <div class="input-field ">
+                <input id="user_name" type="text" [(ngModel)]="username" name="username"class="form-control">
+                <label for="user">Username</label>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="input-field ">
+                <input id="password" type="password" [(ngModel)]="password" name="password" class="form-control">
+                <label for="password">Password</label>
+              </div>
             </div>
-          </div> 
-          <div class="row">
-            <div class="input-field ">
-              <input id="password" type="password" [(ngModel)]="password" name="password" class="form-control">
-              <label for="password">Password</label>
+            <div class="row">
+              <div class="input-field ">
+                <input id="password_conf" type="password" [(ngModel)]="passwordConf" name="passwordConf" class="form-control">
+                <label for="password_Conf">Confirm Password</label>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field ">
-              <input id="password_conf" type="password" [(ngModel)]="passwordConf" name="passwordConf" class="form-control">
-              <label for="password_Conf">Confirm Password</label>
+            <br>
+            <div>
+              <input type="submit" class="btn btn-primary" value="Register">
+            </div>  
+            <div class="section">
+                <p>Already have an account ? <a [routerLink]="['/login']">Login</a></p>
+              <p><a href="#"> By clicking register, I agree to your terms</a></p>
             </div>
-          </div>
-          <br>
-          <div>
-            <input type="submit" class="btn btn-primary" value="Register">
-          </div>  
-          <div class="section">
-            <p><a href="#"> By clicking register, I agree to your terms</a></p>
-          </div>
-            </form>
-          </div>
-        
-    </div>  
-  </div>
+              </form>
+            </div>    
+      </div>  
+    </div>
+  
 <!-- 
 <div class="login-wrapper">
   <div class="container">
