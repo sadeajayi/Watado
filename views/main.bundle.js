@@ -673,18 +673,16 @@ var MapPageComponent = (function () {
         console.log("clicked the marker:" + marker.name + index);
     };
     /*Should render new marker onclick on map */
-    /*
-      mapClicked($event:any) {
-          var newMarker = {
+    MapPageComponent.prototype.mapClicked = function ($event) {
+        var newMarker = {
             name: 'Untitled',
             lat: $event.coords.lat,
             lng: $event.coords.lng,
             draggable: false
-          }
-          this.markers.push(newMarker);
-          this._socketService.emit('add-marker', newMarker);
-      }
-    */
+        };
+        this.markers.push(newMarker);
+        this._socketService.emit('add-marker', newMarker);
+    };
     MapPageComponent.prototype.markerDragEnd = function (marker, $event) {
         console.log('dragEnd', marker, $event);
         var updMarker = {
@@ -712,7 +710,7 @@ var MapPageComponent = (function () {
             draggable: isDraggable
         };
         this.markers.push(newMarker);
-        //this.markerService.addMarker(newMarker);
+        this.markerService.addMarker(newMarker);
         this._socketService.emit('add-marker', newMarker);
     };
     MapPageComponent.prototype.ngOnInit = function () {
