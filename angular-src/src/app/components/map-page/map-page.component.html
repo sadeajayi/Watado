@@ -35,10 +35,9 @@
             [longitude]="lng"
             [zoom]="zoom"
             [disableDefaultUI]= false
-            (mapClick)="mapClicked($event)"
+            (mapClick)="mapClicked()"
             >  
             <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m"
-            
             >
               <agm-marker
                 *ngFor="let m of markers, let i = index"
