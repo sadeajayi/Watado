@@ -60,7 +60,7 @@ export class MapPageComponent implements OnInit {
   }
 
 /*Should render new marker onclick on map */
-/*
+
   mapClicked($event:any) {
       var newMarker = {
         name: 'Untitled',
@@ -71,7 +71,7 @@ export class MapPageComponent implements OnInit {
       this.markers.push(newMarker); 
       this._socketService.emit('add-marker', newMarker);
   }
-*/
+
   markerDragEnd(marker: any, $event:any){
     console.log('dragEnd',marker,$event)
     var updMarker = {
