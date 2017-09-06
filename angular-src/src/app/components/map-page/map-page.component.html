@@ -21,13 +21,13 @@
               </a>
               <ul>
 									<li>
-                      <a href="#" class="btn-floating blue modal-trigger"><i class="material-icons">supervisor_account</i></a>
-                      <a href="#" class="btn-floating mobile-fab-tip modal-trigger">Search for a place to see number of pins dropped</a>
-                    </li> 
-                    <li>
-                        <a href="#" class="btn-floating blue modal-trigger"><i class="material-icons">my_location</i></a>
-                        <a href="#" class="btn-floating mobile-fab-tip modal-trigger">Drop a pin at your location</a>
-                      </li>   
+                    <a href="#" class="btn-floating blue modal-trigger"><i class="material-icons">supervisor_account</i></a>
+                    <a href="#" class="btn-floating mobile-fab-tip modal-trigger">Search for a place to see number of pins dropped</a>
+                  </li> 
+                  <li>
+                    <a href="#" class="btn-floating blue modal-trigger"><i class="material-icons">my_location</i></a>
+                    <a href="#" class="btn-floating mobile-fab-tip modal-trigger">Drop a pin at your location</a>
+                  </li>   
               </ul>
             </div>
           <agm-map
@@ -35,13 +35,14 @@
             [longitude]="lng"
             [zoom]="zoom"
             [disableDefaultUI]= false
-            (mapClick)="mapClicked()"
+            [zoomControl]="false"
+            (mapClick)="addMarker($event)"
             >  
             <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m"
             >
               <agm-marker
                 *ngFor="let m of markers, let i = index"
-                (markerClick)="clickedMarker(m,i)"
+                
                 [latitude]="m.lat"
                 [longitude]="m.lng"
                 [markerDraggable]="m.draggable"
