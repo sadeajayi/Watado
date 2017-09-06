@@ -696,23 +696,26 @@ var MapPageComponent = (function () {
         this.markerService.updateMarker(updMarker, newLat, newLng);
     };
     //Allows user add new marker to the map 
-    MapPageComponent.prototype.addMarker = function ($event) {
-        if (this.markerDraggable == 'yes') {
-            var isDraggable = true;
-        }
-        else {
-            var isDraggable = false;
-        }
-        var newMarker = {
-            name: this.markerName,
-            lat: parseFloat(this.markerLat),
-            lng: parseFloat(this.markerLng),
-            draggable: isDraggable
-        };
-        this.markers.push(newMarker);
-        this.markerService.addMarker(newMarker);
-        this._socketService.emit('add-marker', newMarker);
-    };
+    /*
+    addMarker($event){
+      if(this.markerDraggable == 'yes'){
+        var isDraggable = true;
+      }else{
+        var isDraggable = false;
+      }
+  
+      var newMarker = {
+        name: this.markerName,
+        lat: parseFloat(this.markerLat),
+        lng: parseFloat(this.markerLng),
+        draggable: isDraggable
+      }
+  
+      this.markers.push(newMarker);
+      this.markerService.addMarker(newMarker);
+      this._socketService.emit('add-marker', newMarker);
+    }
+   */
     MapPageComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._socketService.on('marker-added', function (marker) {
@@ -1391,7 +1394,7 @@ module.exports = "\n<nav>\n    <div class=\"nav-wrapper\">\n      <a [routerLink
 /***/ 826:
 /***/ (function(module, exports) {
 
-module.exports = "<nav>\n    <div class=\"nav-wrapper\">\n      <a [routerLink]=\"['/']\" class=\"brand-logo center\"><i class=\"material-icons\">comment</i>Watado</a>\n    </div>\n</nav>\n<!-- this creates a google map on the page with the given lat/lng from -->\n<!-- the component as the initial center of the map: -->\n\n<div class=\"container\">\n\n    <div class=\"row\">\n      <h1>Welcome to Lagos</h1>\n      <div class=\"col s12\">\n        <div id=\"map\"> \n          <div class=\"form-group\">\n            <input id=\"autocomplete\" placeholder=\"search for location\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"off\" type=\"text\" class=\"form-control\" #search [formControl]=\"searchControl\">\n          </div>\n          <div class=\"fixed-action-btn click-to-toggle\">\n              <a class=\"btn-floating btn-large orange\">\n                <i class=\"large material-icons\">location_on</i>\n              </a>\n              <ul>\n\t\t\t\t\t\t\t\t\t<li>\n                    <a href=\"#\" class=\"btn-floating blue modal-trigger\"><i class=\"material-icons\">supervisor_account</i></a>\n                    <a href=\"#\" class=\"btn-floating mobile-fab-tip modal-trigger\">Search for a place to see number of pins dropped</a>\n                  </li> \n                  <li>\n                    <a href=\"#\" class=\"btn-floating blue modal-trigger\"><i class=\"material-icons\">my_location</i></a>\n                    <a href=\"#\" class=\"btn-floating mobile-fab-tip modal-trigger\">Drop a pin at your location</a>\n                  </li>   \n              </ul>\n            </div>\n          <agm-map\n            [latitude]=\"lat\"\n            [longitude]=\"lng\"\n            [zoom]=\"zoom\"\n            [disableDefaultUI]= false\n            [zoomControl]=\"false\"\n            (mapClick)=\"addMarker($event)\"\n            >  \n            <agm-marker-cluster imagePath=\"https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m\"\n            >\n              <agm-marker\n                *ngFor=\"let m of markers, let i = index\"\n                [latitude]=\"m.lat\"\n                [longitude]=\"m.lng\"\n                [markerDraggable]=\"m.draggable\"\n                (dragEnd)=\"markerDragEnd(m, $event)\"\n              >\n              </agm-marker>\n            </agm-marker-cluster>\n          </agm-map>\n        </div>\n      </div>    \n\n  </div>\n</div>\n\n \n\n\n\n\n"
+module.exports = "<nav>\n    <div class=\"nav-wrapper\">\n      <a [routerLink]=\"['/']\" class=\"brand-logo center\"><i class=\"material-icons\">comment</i>Watado</a>\n    </div>\n</nav>\n<!-- this creates a google map on the page with the given lat/lng from -->\n<!-- the component as the initial center of the map: -->\n\n<div class=\"container\">\n\n    <div class=\"row\">\n      <h1>Welcome to Lagos</h1>\n      <div class=\"col s12\">\n        <div id=\"map\"> \n          <div class=\"form-group\">\n            <input id=\"autocomplete\" placeholder=\"search for location\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"off\" type=\"text\" class=\"form-control\" #search [formControl]=\"searchControl\">\n          </div>\n          <div class=\"fixed-action-btn click-to-toggle\">\n              <a class=\"btn-floating btn-large orange\">\n                <i class=\"large material-icons\">location_on</i>\n              </a>\n              <ul>\n\t\t\t\t\t\t\t\t\t<li>\n                    <a href=\"#\" class=\"btn-floating blue modal-trigger\"><i class=\"material-icons\">supervisor_account</i></a>\n                    <a href=\"#\" class=\"btn-floating mobile-fab-tip modal-trigger\">Search for a place to see number of pins dropped</a>\n                  </li> \n                  <li>\n                    <a href=\"#\" class=\"btn-floating blue modal-trigger\"><i class=\"material-icons\">my_location</i></a>\n                    <a href=\"#\" class=\"btn-floating mobile-fab-tip modal-trigger\">Drop a pin at your location</a>\n                  </li>   \n              </ul>\n            </div>\n          <agm-map\n            [latitude]=\"lat\"\n            [longitude]=\"lng\"\n            [zoom]=\"zoom\"\n            [disableDefaultUI]= false\n            [zoomControl]=\"false\"\n            (mapClick)=\"mapClicked($event)\"\n            >  \n            <agm-marker-cluster imagePath=\"https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m\"\n            >\n              <agm-marker\n                *ngFor=\"let m of markers, let i = index\"\n                (markerClick)=\"clickedMarker(m,i)\"\n                [latitude]=\"m.lat\"\n                [longitude]=\"m.lng\"\n                [markerDraggable]=\"m.draggable\"\n                (dragEnd)=\"markerDragEnd(m, $event)\"\n              >\n              </agm-marker>\n            </agm-marker-cluster>\n          </agm-map>\n        </div>\n      </div>    \n\n  </div>\n</div>\n\n \n\n\n\n\n"
 
 /***/ }),
 
