@@ -1,0 +1,28 @@
+// Import all the tools needed to customize the theme and extract parts of it
+
+@include mat-core();
+
+$custom-theme-primary: mat-palette($mat-light-green);
+$custom-theme-accent: mat-palette($mat-orange, 500, 600);
+$custom-theme-warn: mat-palette($mat-red);
+
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+//@include angular-material-theme($custom-theme);
+
+/*
+@mixin custom-theme($theme) {
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin candy-carousel-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($mat-light-green, 500);
+  $accent: map-get($mat-orange, 500);
+  $warn: map-get($mat-red);
+
+  // Use mat-color to extract individual colors from a palette as necessary.
+  .candy-carousel {
+    background-color: mat-color($mat-light-green);
+    border-color: mat-color($mat-orange, A400);
+  }
+}
+*/

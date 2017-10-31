@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewContainerRef, ViewEncapsulation, Inject } from '@angular/core';
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import {AuthService} from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -20,9 +21,9 @@ export class HomeComponent implements OnInit {
     private authService:AuthService,
     private router:Router,
     private flashMessage:FlashMessagesService,
-    //public dialog: MdDialog
+    public dialog: MdDialog
   ) { }
-    /*
+    
     loginOpenDialog(): void {
       let dialogRef = this.dialog.open(LoginComponent, {
         width: '600px',
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit {
           this.dialogResult = result;
         });
     }
-    */
+    
   ngOnInit() {
   }
 

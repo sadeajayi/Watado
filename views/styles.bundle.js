@@ -1,6 +1,63 @@
-webpackJsonp([2,4],{
+webpackJsonp([3,5],{
 
-/***/ 1096:
+/***/ 216:
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function() {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		var result = [];
+		for(var i = 0; i < this.length; i++) {
+			var item = this[i];
+			if(item[2]) {
+				result.push("@media " + item[2] + "{" + item[1] + "}");
+			} else {
+				result.push(item[1]);
+			}
+		}
+		return result.join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+
+/***/ }),
+
+/***/ 283:
 /***/ (function(module, exports) {
 
 /*
@@ -253,24 +310,43 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 1104:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(501);
-
-
-/***/ }),
-
-/***/ 501:
+/***/ 288:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(796);
+var content = __webpack_require__(483);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(1096)(content, {});
+var update = __webpack_require__(283)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../css-loader/index.js?{\"sourceMap\":false}!../../postcss-loader/index.js!./snazzy-info-window.css", function() {
+			var newContent = require("!!../../css-loader/index.js?{\"sourceMap\":false}!../../postcss-loader/index.js!./snazzy-info-window.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 289:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(484);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(283)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -288,77 +364,44 @@ if(false) {
 
 /***/ }),
 
-/***/ 796:
+/***/ 483:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(797)();
+exports = module.exports = __webpack_require__(216)();
 // imports
 
 
 // module
-exports.push([module.i, "\n/* You can add global styles to this file, and also import other style files \n\n\n/* Custom default button \n.btn-default,\n.btn-default:hover,\n.btn-default:focus {\n  color: #333;\n  text-shadow: none; /* Prevent inheritance from `body` \n  background-color: #fff;\n  border: 1px solid #fff;\n}\n\n*/\n/*\n * Base structure\n */\n\nhtml,\nbody {\n  height: 100%;\n  /*background-color: #3D8FFF;*/\n  width: 100%;\n}\n\n\n/* Extra markup and styles for table-esque vertical and horizontal centering */\n.site-wrapper {\n  display: table !important ;\n  width: 100% !important ;\n  height: 100%; /* For at least Firefox */\n  min-height: 100% !important ;\n  /*\n  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);\n          box-shadow: inset 0 0 100px rgba(0,0,0,.5);\n  */\n}\n/*\n.site-wrapper-inner {\n  display: table-cell;\n  vertical-align: top;\n}\n.cover-container {\n  margin-right: auto;\n  margin-left: auto;\n}\n*/\n/* Padding for spacing */\n\n\n/*\n * Cover\n */\n\n\n/*\n * Footer\n */\n\n.mastfoot {\n  color: #999; /* IE8 proofing */\n  color: rgba(255,255,255,.5);\n}\n\n\n/*\n * Affix and center\n */\n\n@media (min-width: 768px) {\n  /* Pull out the header and footer */\n  .masthead {\n    position: fixed !important ;\n    top: 0;\n  }\n\n  /* Start the vertical centering */\n  .site-wrapper-inner {\n    vertical-align: middle !important ;\n  }\n  /* Handle the widths */\n  .masthead,\n  .mastfoot,\n  .cover-container {\n    width: 100% !important ; /* Must be percentage or pixels for horizontal alignment */\n  }\n}\n\n@media (min-width: 992px) {\n  .masthead,\n  .mastfoot,\n  .cover-container {\n    width: 700px !important ;\n  }\n}\n\n", ""]);
+exports.push([module.i, ".si-float-wrapper {\n  position: absolute;\n  width: 100%; }\n  .si-float-wrapper,\n  .si-float-wrapper * {\n    box-sizing: border-box; }\n\n[class*='si-wrapper'] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: absolute;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  font-size: 14px;\n  cursor: default; }\n\n.si-wrapper-top {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  margin-top: -40px;\n  margin-left: 0px;\n  -webkit-transform: translate(-50%, -100%);\n          transform: translate(-50%, -100%); }\n\n.si-wrapper-bottom {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n      -ms-flex-direction: column-reverse;\n          flex-direction: column-reverse;\n  margin-top: 0px;\n  margin-left: 0px;\n  -webkit-transform: translate(-50%, 0);\n          transform: translate(-50%, 0); }\n\n.si-wrapper-left {\n  margin-top: -20px;\n  margin-left: -11px;\n  -webkit-transform: translate(-100%, -50%);\n          transform: translate(-100%, -50%); }\n\n.si-wrapper-right {\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: reverse;\n      -ms-flex-direction: row-reverse;\n          flex-direction: row-reverse;\n  margin-top: -20px;\n  margin-left: 11px;\n  -webkit-transform: translate(0, -50%);\n          transform: translate(0, -50%); }\n\n[class*='si-shadow-wrapper'] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  opacity: 0.29804;\n  z-index: 1; }\n\n.si-shadow-wrapper-top,\n.si-shadow-wrapper-bottom {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n\n.si-shadow-pointer-bottom,\n.si-shadow-pointer-right {\n  -webkit-box-ordinal-group: 0;\n      -ms-flex-order: -1;\n          order: -1; }\n\n.si-shadow-frame {\n  box-shadow: 0 1px 3px 0 #000; }\n\n[class*='si-shadow-pointer'] {\n  position: relative;\n  width: 15px;\n  height: 15px;\n  margin: auto; }\n\n[class*='si-shadow-inner-pointer'] {\n  position: absolute;\n  width: 141%;\n  height: 141%;\n  box-shadow: -0.70711px 0.70711px 3px 0 #000; }\n\n.si-shadow-inner-pointer-top {\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%) rotate(-45deg);\n          transform: translate(-50%, -50%) rotate(-45deg); }\n\n.si-shadow-inner-pointer-bottom {\n  bottom: 0;\n  left: 50%;\n  -webkit-transform: translate(-50%, 50%) rotate(-45deg);\n          transform: translate(-50%, 50%) rotate(-45deg); }\n\n.si-shadow-inner-pointer-left {\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%) rotate(-45deg);\n          transform: translate(-50%, -50%) rotate(-45deg); }\n\n.si-shadow-inner-pointer-right {\n  top: 50%;\n  right: 0;\n  -webkit-transform: translate(50%, -50%) rotate(-45deg);\n          transform: translate(50%, -50%) rotate(-45deg); }\n\n.si-frame {\n  position: relative;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto;\n  border-radius: 3px;\n  overflow: hidden;\n  z-index: 2; }\n\n.si-content-wrapper {\n  width: 100%;\n  max-width: 100%;\n  max-height: 100%;\n  padding: 30px;\n  background-color: #fff; }\n  .si-has-border .si-content-wrapper {\n    border: 1px solid #bbb; }\n\n.si-content {\n  overflow: auto; }\n\n.si-close-button {\n  position: absolute;\n  top: 0;\n  right: 0;\n  border: 0;\n  outline: none;\n  background-color: transparent;\n  color: inherit;\n  font-family: Arial, Baskerville, monospace;\n  font-size: 24px;\n  cursor: pointer;\n  opacity: 0.5;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none; }\n  .si-close-button:hover, .si-close-button:focus {\n    opacity: 0.7; }\n\n[class*='si-pointer-border'] {\n  position: absolute;\n  border: 15px solid transparent;\n  z-index: 3; }\n\n[class*='si-pointer-bg'] {\n  position: relative;\n  border: 15px solid transparent;\n  z-index: 4; }\n  .si-has-border [class*='si-pointer-bg'] {\n    border-width: 15px; }\n\n.si-pointer-border-top,\n.si-pointer-border-bottom {\n  left: 50%;\n  -webkit-transform: translate(-50%, 0);\n          transform: translate(-50%, 0); }\n\n.si-pointer-border-left,\n.si-pointer-border-right {\n  top: 50%;\n  -webkit-transform: translate(0, -50%);\n          transform: translate(0, -50%); }\n\n.si-pointer-top {\n  border-bottom: 0; }\n\n.si-pointer-border-top {\n  bottom: 0;\n  border-top-color: #bbb; }\n\n.si-pointer-bg-top {\n  border-top-color: #fff; }\n  .si-has-border .si-pointer-bg-top {\n    top: -1px;\n    margin-bottom: 0px; }\n\n.si-pointer-bottom {\n  border-top: 0; }\n\n.si-pointer-border-bottom {\n  top: 0;\n  border-bottom-color: #bbb; }\n\n.si-pointer-bg-bottom {\n  border-bottom-color: #fff; }\n  .si-has-border .si-pointer-bg-bottom {\n    bottom: -1px;\n    margin-top: 0px; }\n\n.si-pointer-left {\n  border-right: 0; }\n\n.si-pointer-border-left {\n  right: 0;\n  border-left-color: #bbb; }\n\n.si-pointer-bg-left {\n  border-left-color: #fff; }\n  .si-has-border .si-pointer-bg-left {\n    left: -1px;\n    margin-right: 0px; }\n\n.si-pointer-right {\n  border-left: 0; }\n\n.si-pointer-border-right {\n  left: 0;\n  border-right-color: #bbb; }\n\n.si-pointer-bg-right {\n  border-right-color: #fff; }\n  .si-has-border .si-pointer-bg-right {\n    right: -1px;\n    margin-left: 0px; }\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 797:
-/***/ (function(module, exports) {
+/***/ 484:
+/***/ (function(module, exports, __webpack_require__) {
 
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function() {
-	var list = [];
+exports = module.exports = __webpack_require__(216)();
+// imports
 
-	// return the list of modules as css string
-	list.toString = function toString() {
-		var result = [];
-		for(var i = 0; i < this.length; i++) {
-			var item = this[i];
-			if(item[2]) {
-				result.push("@media " + item[2] + "{" + item[1] + "}");
-			} else {
-				result.push(item[1]);
-			}
-		}
-		return result.join("");
-	};
 
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
+// module
+exports.push([module.i, "\n/* You can add global styles to this file, and also import other style files \n\n/* Custom default button \n.btn-default,\n.btn-default:hover,\n.btn-default:focus {\n  color: #333;\n  text-shadow: none; /* Prevent inheritance from `body` \n  background-color: #fff;\n  border: 1px solid #fff;\n}\n\n*/\n/*\n * Base structure\n */\n\nhtml,\nbody {\n  height: 100%;\n  /*background-color: #3D8FFF;*/\n  width: 100%;\n}\n\n\n/* Extra markup and styles for table-esque vertical and horizontal centering */\n.site-wrapper {\n  display: table !important ;\n  width: 100% !important ;\n  height: 100%; /* For at least Firefox */\n  min-height: 100% !important ;\n  /*\n  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);\n          box-shadow: inset 0 0 100px rgba(0,0,0,.5);\n  */\n}\n/*\n.site-wrapper-inner {\n  display: table-cell;\n  vertical-align: top;\n}\n.cover-container {\n  margin-right: auto;\n  margin-left: auto;\n}\n*/\n/* Padding for spacing */\n\n\n/*\n * Cover\n */\n\n\n/*\n * Footer\n */\n\n.mastfoot {\n  color: #999; /* IE8 proofing */\n  color: rgba(255,255,255,.5);\n}\n\n\n/*\n * Affix and center\n */\n\n@media (min-width: 768px) {\n  /* Pull out the header and footer */\n  .masthead {\n    position: fixed !important ;\n    top: 0;\n  }\n\n  /* Start the vertical centering */\n  .site-wrapper-inner {\n    vertical-align: middle !important ;\n  }\n  /* Handle the widths */\n  .masthead,\n  .mastfoot,\n  .cover-container {\n    width: 100% !important ; /* Must be percentage or pixels for horizontal alignment */\n  }\n}\n\n@media (min-width: 992px) {\n  .masthead,\n  .mastfoot,\n  .cover-container {\n    width: 700px !important ;\n  }\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 782:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(289);
+module.exports = __webpack_require__(288);
 
 
 /***/ })
 
-},[1104]);
+},[782]);
 //# sourceMappingURL=styles.bundle.map

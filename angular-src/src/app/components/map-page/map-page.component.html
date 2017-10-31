@@ -1,59 +1,98 @@
+<!--
 <nav>
     <div class="nav-wrapper">
       <a [routerLink]="['/']" class="brand-logo center"><i class="material-icons">comment</i>Watado</a>
     </div>
 </nav>
+-->
+
+
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 
-<div class="container">
-  <div class="row">
-      <h1>Welcome to Lagos</h1>
-      <div class="col s12">
-        <div id="map"> 
-          <div class="form-group">
-            <input id="autocomplete" placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
-          </div>
-          <div class="fixed-action-btn click-to-toggle">
-              <a class="btn-floating btn-large orange">
-                <i class="large material-icons">location_on</i>
+    <md-sidenav-container class="user-profile">
+        <md-sidenav #sidenav mode="side">
+        <a [routerLink]="['/']" class="brand-logo "><i class="material-icons">home</i>Home</a>
+          <div class="user">
+            <div class="avatar">
+              <a class="logo-container">
+                <i class="large material-icons">account_circle</i>
               </a>
-              <ul>
-									<li>
-                    <a href="#" class="btn-floating blue modal-trigger"><i class="material-icons">supervisor_account</i></a>
-                    <a href="#" class="btn-floating mobile-fab-tip modal-trigger">Search for a place to see number of pins dropped</a>
-                  </li> 
-                  <li>
-                    <a href="#" class="btn-floating blue modal-trigger"><i class="material-icons">my_location</i></a>
-                    <a href="#" class="btn-floating mobile-fab-tip modal-trigger">Drop a pin at your location</a>
-                  </li>   
-              </ul>
             </div>
-          <agm-map
-            [latitude]="lat"
-            [longitude]="lng"
-            [zoom]="zoom"
-            [disableDefaultUI]= false
-            (mapClick)="mapClicked($event)"
-            >  
-            <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m"
-            >
-              <agm-marker
-                *ngFor="let m of markers, let i = index"
-                [latitude]="m.lat"
-                [longitude]="m.lng"
-                [markerDraggable]="m.draggable"
-                (dragEnd)="markerDragEnd(m, $event)"
-              >
-              </agm-marker>
-            </agm-marker-cluster>
-          </agm-map>
-        </div>
-      </div>    
-  </div>
-</div>
+            <div class="avatar">
+              <p>User Profile Appears Here</p>   
+            </div> 
+            <!--
+            <div class="jumbotron" *ngIf="user">
+              <h2>Welcome {{user.name}} <small>{{user.username}} </small></h2>
+              <input class="form-control" [(ngModel)]="user.name">
+            </div>
+            -->
+          </div>
+        </md-sidenav>
+        <div class="fixed-action-btn click-to-toggle">
+            <a class="btn-floating btn-large orange">
+              <i class="large material-icons">location_on</i>
+            </a>
+            <ul>
+                <li>
+                  <button class="btn-floating blue" type="button" (click)="sidenav.toggle()"><i class="material-icons">supervisor_account</i></button>
+                  <a href="#" class="btn-floating mobile-fab-tip modal-trigger">View Your Profile</a>
+                </li>   
+            </ul>
+          </div>
+          <input id="input" placeholder="search for a location" autocorrect="off" autocapitalize="off" 
+          spellcheck="off" type="text" class="form-control card-panel hoverable" #search [formControl]="searchControl">
+        
+          <div id="map"> 
+        
+                    <agm-map
+                      [latitude]="lat"
+                      [longitude]="lng"
+                      [zoom]="zoom"
+                      [disableDefaultUI]= false
+                      [scrollwheel]="false"
+                      (mapClick)="mapClicked($event)"
+                      >  
+                        <agm-snazzy-info-window [maxWidth]="800" [closeWhenOthersOpen]="false" >
+                          <ng-template>
+                            
+                          </ng-template> 
+                        </agm-snazzy-info-window>    
+                      <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m"
+                      >
+                        <agm-marker
+                          *ngFor="let m of markers, let i = index"
+                          [latitude]="m.lat"
+                          [longitude]="m.lng"
+                          [markerDraggable]="m.draggable"
+                          (dragEnd)="markerDragEnd(m, $event)"
+                        >
+                        <agm-snazzy-info-window [maxWidth]="500" [closeWhenOthersOpen]="true" [openOnMarkerClick]="true">
+                          <ng-template>
+                            My first Snazzy Info Window!
+                          </ng-template>    
+                        </agm-snazzy-info-window>
+                        </agm-marker>
+                      </agm-marker-cluster>
+                    </agm-map>
+                  </div>
+           
+        
+        <!--
+        <button md-mini-fab class="fixed-action-btn click-to-toggle" (click)="sidenav.toggle()">
+            <md-icon>
+                <a class="btn-floating btn-large orange">
+                  <i class="large material-icons">location_on</i>
+                </a>
+            </md-icon>
+        </button>
+        -->
+      </md-sidenav-container>
 
- 
+
+
+
 
 
 

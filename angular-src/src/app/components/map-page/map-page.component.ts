@@ -1,6 +1,6 @@
-import { Component, NgModule, NgZone, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, NgModule, NgZone, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import {MarkerService} from "../../services/marker.service";
-
+//import {AuthService} from '../../services/auth.service';
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MapCluster } from '../../map-cluster';
@@ -24,13 +24,11 @@ declare const MarkerClusterer;
 })
 
 export class MapPageComponent implements OnInit {
- // socket: SocketIOClient.Socket
-
   lat: number =  6.4471;
   lng: number = 3.4182;
   zoom: number = 14;
   searchControl: FormControl;
-
+  zoomControlOptions: AgmCoreModule;
     //Values
   markerName: string;
   markerLat: string;
@@ -41,6 +39,7 @@ export class MapPageComponent implements OnInit {
 
  @ViewChild("search")
   public searchElementRef: ElementRef;
+  @ViewChild('inputElement') inputElement: ElementRef;
 
 /*Gets pre-defined markers from MarkerServices and adds them to the map */
   constructor(
@@ -56,6 +55,7 @@ export class MapPageComponent implements OnInit {
 
   /* Testing to respond to user clicking marker on client */
   clickedMarker(marker: marker, index: number) {
+   // this.marker.lat = marker.getCurrentPosition.lat();
     console.log(`clicked the marker:` + marker.name + index);
   }
 
@@ -68,7 +68,6 @@ export class MapPageComponent implements OnInit {
         lng: $event.coords.lng,
         draggable: false
       }
-      //this.markers.push(newMarker); 
       this._socketService.emit('add-marker', newMarker);
   }
 
@@ -111,17 +110,18 @@ export class MapPageComponent implements OnInit {
   ngOnInit() {
      
     this._socketService.on('marker-added', (marker:any) => {
-        this.markers.push(marker);
-        
+      localStorage.setItem('markers',marker);
+      this.markers.push(marker);   
       });
     
           
-    this.zoom = 14;
+    this.zoom = 15;
     this.lat = 6.4471;
     this.lng =  3.4182;
 
     //create search FormControl
     this.searchControl = new FormControl();
+  
     /*
     //set current position
     //this.setCurrentPosition();
@@ -137,20 +137,22 @@ export class MapPageComponent implements OnInit {
           south: 6.393351,
           west: 3.098273
       },
+
         types: ["establishment"]
       });
-
+      //const input = this.inputElement.nativeElement;
+     
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result
-          //var input = document.getElementById('pac-input');
-          //var autocomplete = new google.maps.places.Autocomplete(input);
-
+        
+          //var searcher = google.maps.place.searchElementRef
           // Bind the map's bounds (viewport) property to the autocomplete object,
           // so that the autocomplete requests use the current map bounds for the
           // bounds option in the request.
           //autocomplete.bindTo('bounds', map);
           var place =  google.maps.places.PlaceResult = autocomplete.getPlace();
+         
           //var boundsByViewport = place.geometry.viewport;
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
@@ -160,7 +162,7 @@ export class MapPageComponent implements OnInit {
           //set latitude, longitude and zoom
           this.lat = place.geometry.location.lat();
           this.lng = place.geometry.location.lng();
-          this.zoom = 18;
+          this.zoom = 19;
         });
       });
     });

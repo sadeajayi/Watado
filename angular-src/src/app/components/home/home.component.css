@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext);
 body {
   display: flex;
   min-height: 100vh;
@@ -17,14 +18,16 @@ main {
 .row{
   overflow: overlay;
 }
+/*
 nav .brand-logo {
   position: absolute;
   color: #ffffff;
   display: inline-block;
-  font-size: 3.1rem;
+  font-size: 2.1rem;
   font-weight: 700;
   padding: 0;
 }
+*/
 .material-icons{
     font-size: 2.4rem; 
 }
@@ -37,10 +40,7 @@ li{
   color: orange;
 
 }
-.lead{
-  font-size: 2rem;
-  
-}
+
 .right.hide-on-med-and-down{
   padding-right: 3%; 
 }
@@ -79,10 +79,11 @@ h2 {
 }
 
 .cover-heading{
-
+    line-height: 110%;
+    margin: 7.78rem 0 1.424rem 0;
     font-family: lato;
     text-align: center;
-    font-size: 4.00rem;
+    font-size: 3.00rem;
     font-weight: 800;
     color: white;
 }
@@ -94,7 +95,7 @@ h2 {
     
   }
 .material-icons{
-    font-size: 3.4rem; 
+    font-size: 2.4rem; 
 }
   #nav-mobile {
     float: right;
@@ -124,28 +125,24 @@ h2 {
 }
 
 .parallax{
-
-  background: linear-gradient( 5deg,rgba(33, 150, 243, 0.32), rgba(255, 152, 0, 0.85), rgba(255, 126, 34, 0.86)),  
-                url(./assets/lagos.png) center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(255, 152, 0, 0.83), rgba(255, 193, 7, 0.96)),
+               url(./assets/beach.png) center no-repeat;
+  /*background: linear-gradient( 5deg,rgba(33, 150, 243, 0.32), rgba(255, 152, 0, 0.85), rgba(255, 126, 34, 0.86)),  
+                url(./assets/lagos.png) center no-repeat;*/
   background-size: cover;             
 }
-
 
 .btn-floating{
     width: 20%;
 }
 
-.cover-heading{
-    font-family: lato;
-    text-align: center;
-    font-size: 4.56rem;
-    color: white;
-}
 
 .lead{
     text-align: center;
     font-style: italic;
-    font-weight: 600;
+    color: white;
+    font-size: 2rem;
+    
 }
 
 .signup{
@@ -160,7 +157,10 @@ h2 {
     background-color: #FF5722; 
     border-radius: 25px;
 }
-
+.explore{
+  background-color: #4da550;
+  border-radius: 15px;
+}
 .waves-effect.waves-light.btn-large.login{
     background-color: #FFFFFF; 
     border-radius: 25px;
@@ -194,3 +194,4 @@ h2 {
 .grey-text.text-lighten-3 {
   color: #211f1f !important;
 }
+/*  */

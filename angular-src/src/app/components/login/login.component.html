@@ -1,13 +1,6 @@
 
-<nav>
-    <div class="nav-wrapper">
-      <a [routerLink]="['/']" class="brand-logo center"><i class="material-icons">comment</i>Watado</a>
-    </div>
-</nav>
-		
-
+<!--
 <div class="container">
-		
 			  <div class="z-depth-1 grey lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 					<h2 class="page-header">Login</h2>
 					<div class="row">
@@ -29,5 +22,33 @@
 							<input type="submit" class="btn btn-primary" value="Login">
 						</form>
 				</div>   
-	  
+	
+</div>
+-->
+<div class="z-depth-1 grey lighten-4 row" style="padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+	<h1 md-dialog-title>Login</h1>
+	<div md-dialog-content>
+			<div class="row">
+				<div class="input-field">
+					<label>Username</label>
+					<input type="text" class="form-control" [(ngModel)]="username" name="username">
+				</div>
+			</div>	
+		<div class="row">
+			<div class="input-field">
+					<div class="form-group">
+						<label>Password</label>
+						<input type="password" class="form-control" [(ngModel)]="password" name="password">
+					</div>
+			</div>
+		</div>
+	</div>			
+	<md-form-field>
+		<input mdInput tabindex="1" [(ngModel)]="data.animal">
+	</md-form-field>
+	
+	<div md-dialog-actions>
+		<button class="btn btn-primary"  md-button (click)="onLoginClick()" tabindex="-1">Login</button>
+		<a class="forgot-password"  [routerLink]="['/forgot']">Forgot Password</a>
+	</div>
 </div>

@@ -1,5 +1,7 @@
 //All Modules imported go under here
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from '@angular/material';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NgZone } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,10 +10,10 @@ import { FormControl , FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { AgmJsMarkerClustererModule, ClusterManager } from "@agm/js-marker-clusterer";
-//import { MdCardModule, MdButtonModule, MdCheckboxModule, MdDialogModule } from '@angular/material';
+import { MdCardModule, MdButtonModule, MdCheckboxModule, MdDialogModule } from '@angular/material';
 import {ModalModule} from 'ngx-modal';
 
-
+// MapCluster Module
 import { MapCluster } from './map-cluster';
 
 // All components imported go under here
@@ -23,7 +25,7 @@ import { MapPageComponent } from './components/map-page/map-page.component';
 import { AboutComponent } from './components/about/about.component';
 import { MeetTheTeamComponent } from './components/meet-the-team/meet-the-team.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 // All services imported go under here
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
@@ -34,6 +36,9 @@ import { MarkerService } from "./services/marker.service";
 import { SocketService } from './components/shared/socket.service';
 import 'js-marker-clusterer/src/markerclusterer.js';
 
+//Interactive InfoWindow
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'register', component: RegisterComponent},
@@ -42,6 +47,7 @@ const appRoutes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'meet-the-team', component: MeetTheTeamComponent},
   {path: 'footer', component: FooterComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
 ]
 
 @NgModule({
@@ -55,10 +61,13 @@ const appRoutes: Routes = [
     MeetTheTeamComponent,
     FooterComponent,
     MapCluster,
+    ForgotPasswordComponent
 
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
@@ -70,12 +79,13 @@ const appRoutes: Routes = [
       libraries: ["places"]
     }),
     AgmJsMarkerClustererModule,
+    AgmSnazzyInfoWindowModule,
     ModalModule,
-    /* MdCardModule,
+    MdCardModule,
     MdButtonModule, 
     MdCheckboxModule, 
     MdDialogModule
-    */
+    
   ],
   providers: [ValidateService, MarkerService, AuthService, AuthGuard,
   SocketService, ClusterManager],

@@ -1,31 +1,4 @@
 
-nav{
-  background-color: #1289e8;
-  border: none;
-  /*box-shadow: none;*/
-}
-.btn.btn-primary{
-    margin: 0 auto;
-    width: 50%;
-    display: block;
-    background-color: #FF5722;
-}
-
-.jumbotron{padding-top:30px;padding-bottom:30px;margin-bottom:30px;color:inherit;background-color:#eee}
-.jumbotron .h1,.jumbotron h1{color:inherit}
-.jumbotron p{margin-bottom:15px;font-size:21px;font-weight:200}
-.jumbotron>hr{border-top-color:#d5d5d5}
-.container .jumbotron,.container-fluid .jumbotron{padding-right:15px;padding-left:15px;border-radius:6px}
-.jumbotron .container{max-width:100%}
-@media screen and (min-width:768px){
-  .jumbotron{padding-top:48px;padding-bottom:48px
-  }
-  .container .jumbotron,.container-fluid .jumbotron{
-    padding-right:60px;padding-left:60px
-  }
-  .jumbotron .h1,.jumbotron h1{
-    font-size:63px}}
-
     div.z-depth-1.grey.lighten-4.row {
       border-radius: 25px;
   }
@@ -75,7 +48,9 @@ nav{
     position: inherit;
   }
   
-  
+  .forgot-password{
+      float: left;
+  }
   .signin-form {
       background-size: cover;
       padding: 2em 2em;

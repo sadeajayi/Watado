@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {FlashMessagesService} from 'angular2-flash-messages';
-//import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
 
 @Component({
@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
     document.body.style.backgroundSize = "cover";
 
   }
-
 
 
   ngOnInit() {

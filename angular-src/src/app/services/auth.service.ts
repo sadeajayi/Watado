@@ -29,6 +29,14 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  /*
+  forgotPassword(user){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('users/forgot', user,{headers: headers})
+    .map(res => res.json());
+  }
+  */
     getProfile(){
     let headers = new Headers();
     this.loadToken();
