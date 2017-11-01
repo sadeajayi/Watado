@@ -72,8 +72,8 @@ app.use(express.static(path.join(__dirname, 'views')));
 // Test Users Dropping Pins
 io.on('connection', (socket )=>{
     console.log('new connection made');
-    var markers = localStorage.getItem('markers');
-    markers += socket;
+    //var markers = localStorage.getItem('markers');
+    //markers += socket;
     socket.on('add-marker', (data) => {
     // console.log(data.msg);
     localStorage.setItem('markers', markers);

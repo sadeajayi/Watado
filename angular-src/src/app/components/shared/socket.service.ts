@@ -14,8 +14,8 @@ markers: any;
         this.socket.on(eventName, function(data: any) {
           callback(data);
         });
-        var markers = localStorage.getItem('markers');
-        markers += this.socket;
+        //var markers = localStorage.getItem('markers');
+        //markers += this.socket;
         
       }
     };
@@ -23,7 +23,7 @@ markers: any;
   emit(eventName: any, data: any) {
       if (this.socket) {
         this.socket.emit(eventName, data);
-        localStorage.setItem('markers', this.markers);
+        //localStorage.setItem('markers', this.markers);
       }
     };
 

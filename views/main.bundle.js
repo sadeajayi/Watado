@@ -28,15 +28,15 @@ var SocketService = /** @class */ (function () {
             this.socket.on(eventName, function (data) {
                 callback(data);
             });
-            var markers = localStorage.getItem('markers');
-            markers += this.socket;
+            //var markers = localStorage.getItem('markers');
+            //markers += this.socket;
         }
     };
     ;
     SocketService.prototype.emit = function (eventName, data) {
         if (this.socket) {
             this.socket.emit(eventName, data);
-            localStorage.setItem('markers', this.markers);
+            //localStorage.setItem('markers', this.markers);
         }
     };
     ;
@@ -480,7 +480,7 @@ var AuthService = /** @class */ (function () {
         console.log('TRYING TO REGISTER');
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/users/register', user, { headers: headers })
+        return this.http.post('users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
         /*return this.http.post('/users/register', user,{headers: headers})
           .map(res => res.json());
@@ -489,7 +489,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/users/authenticate', user, { headers: headers })
+        return this.http.post('users/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     /*
@@ -505,7 +505,7 @@ var AuthService = /** @class */ (function () {
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/users/profile', { headers: headers })
+        return this.http.post('users/profile', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.storeUserData = function (token, user) {
@@ -862,26 +862,23 @@ var MapPageComponent = /** @class */ (function () {
         this.markerService.updateMarker(updMarker, newLat, newLng);
     };
     //Allows user add new marker to the map 
-    /*
-    addMarker($event){
-      if(this.markerDraggable == 'yes'){
-        var isDraggable = true;
-      }else{
-        var isDraggable = false;
-      }
-  
-      var newMarker = {
-        name: this.markerName,
-        lat: parseFloat(this.markerLat),
-        lng: parseFloat(this.markerLng),
-        draggable: isDraggable
-      }
-  
-      this.markers.push(newMarker);
-      this.markerService.addMarker(newMarker);
-      this._socketService.emit('add-marker', newMarker);
-    }
-   */
+    MapPageComponent.prototype.addMarker = function ($event) {
+        if (this.markerDraggable == 'yes') {
+            var isDraggable = true;
+        }
+        else {
+            var isDraggable = false;
+        }
+        var newMarker = {
+            name: this.markerName,
+            lat: parseFloat(this.markerLat),
+            lng: parseFloat(this.markerLng),
+            draggable: isDraggable
+        };
+        this.markers.push(newMarker);
+        this.markerService.addMarker(newMarker);
+        this._socketService.emit('add-marker', newMarker);
+    };
     MapPageComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._socketService.on('marker-added', function (marker) {
