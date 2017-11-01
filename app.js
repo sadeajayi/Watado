@@ -58,7 +58,7 @@ app.use(session({
 var server = require('http').Server(app);
 
 // Socket.io for real time communication
-var io = require('socket.io')(server);
+var io = require('socket.io').listen(server);
 
 var port = process.env.PORT || 3000;
 
@@ -76,7 +76,7 @@ io.on('connection', (socket )=>{
     //markers += socket;
     socket.on('add-marker', (data) => {
     // console.log(data.msg);
-    localStorage.setItem('markers', markers);
+    //localStorage.setItem('markers', markers);
     io.emit('marker-added', data);
   });
 });

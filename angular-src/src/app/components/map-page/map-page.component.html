@@ -21,8 +21,7 @@
           <input id="input" placeholder="search for a location" autocorrect="off" autocapitalize="off" 
           spellcheck="off" type="text" class="form-control card-panel hoverable" #search [formControl]="searchControl">
         
-          <div id="map"> 
-        
+          <div id="map">   
                     <agm-map
                       [latitude]="lat"
                       [longitude]="lng"
@@ -30,12 +29,7 @@
                       [disableDefaultUI]= false
                       [scrollwheel]="false"
                       (mapClick)="mapClicked($event)"
-                      >  
-                        <agm-snazzy-info-window [maxWidth]="800" [closeWhenOthersOpen]="false" >
-                          <ng-template>
-                            
-                          </ng-template> 
-                        </agm-snazzy-info-window>    
+                      >    
                       <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m"
                       >
                         <agm-marker
@@ -44,11 +38,7 @@
                           [longitude]="m.lng"
                           [markerDraggable]="m.draggable"
                           (dragEnd)="markerDragEnd(m, $event)"
-                        >
-                        <agm-snazzy-info-window [maxWidth]="500" [closeWhenOthersOpen]="true" [openOnMarkerClick]="true">
-                          <ng-template>
-                            My first Snazzy Info Window!
-                          </ng-template>    
+                        >   
                         </agm-snazzy-info-window>
                         </agm-marker>
                       </agm-marker-cluster>
