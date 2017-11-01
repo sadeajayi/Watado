@@ -106,7 +106,6 @@ app.get('*', (req, res) => {
 
 // GET route after registering
 app.get('/authenticate', function (req, res, next) {
-//router.get('/map-page', function (req, res, next) {
   User.findById(req.session.userId)
     .exec(function (error, user) {
       if (error) {
@@ -117,7 +116,7 @@ app.get('/authenticate', function (req, res, next) {
           err.status = 400;
           return next(err);
         } else {
-          return res.send('<h4>Sign Up Successful!</h4> <br> <h3>Name: </h3>' + user.username + '<h3>Email: </h3>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
+          return res.send('<h4>Sign Up Successful!</h4> <br> + <h3>Email: </h3>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
         }
       }
     });

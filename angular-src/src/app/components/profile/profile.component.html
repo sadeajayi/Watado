@@ -1,0 +1,17 @@
+<div class="user">
+  <div class="avatar">
+    <a class="logo-container">
+      <i class="large material-icons">account_circle</i>
+    </a>
+  </div>
+  <div class="avatar">
+    <p>User Profile Appears Here</p>   
+  </div> 
+  <div *ngIf="user">
+    <h2 clas="page-header">{{user.name}}</h2>
+    <ul class="list-group">
+    <!--  <li class="list-group-item">Username: {{user.username}}</li> -->
+      <li class="list-group-item">Email: {{user.email}}</li>
+    </ul>
+  </div>
+</div>

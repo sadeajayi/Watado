@@ -1,0 +1,17 @@
+.user{
+    display: flex;
+    overflow: visible;
+    width: 300px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: white;
+    box-shadow: 5px 0 6px rgba(0, 0, 0, 0.24);
+    /*background: #ffb75e;
+    background: -webkit-linear-gradient(to right, #ffb75e, #ed8f03);
+    background: linear-gradient(to right, #ffb75e, #ed8f03);
+    background: linear-gradient(#FF9800, rgba(255, 152, 0, 0.83), rgba(255, 193, 7, 0.96));
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+  */
+  }

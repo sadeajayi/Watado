@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {FlashMessagesService} from 'angular2-flash-messages';
@@ -18,12 +18,12 @@ export class LoginComponent implements OnInit {
     private authService:AuthService,
     private router:Router,
     private flashMessage:FlashMessagesService,
-   // public thisDialogRef: MdDialogRef<LoginComponent>, @Inject(MD_DIALOG_DATA) public data: string
   ) { 
+    
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundColor = "#1289e8";
     document.body.style.backgroundSize = "cover";
-
+    
   }
 
 

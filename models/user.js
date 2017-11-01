@@ -2,18 +2,23 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var config = require('../config/database');
 var UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+  },
   email: {
     type: String,
     unique: true,
     required: true,
     trim: true
   },
+  /*
   username: {
     type: String,
     unique: true,
     required: true,
     trim: true
   },
+  */
   password: {
     type: String,
     required: true,
@@ -27,13 +32,12 @@ var UserSchema = new mongoose.Schema({
 var User = module.exports = mongoose.model('User', UserSchema);
 //const User = module.exports = mongoose.model('User', UserSchema);
 
-
 module.exports.getUserById = function(id, callback){
   User.findById(id, callback);
 }
 
-module.exports.getUserByUsername = function(username, callback){
-  const query = {username: username}
+module.exports.getUserByUsername = function(email, callback){
+  const query = {email: email}
   User.findOne(query, callback);
 }
 
@@ -63,10 +67,8 @@ UserSchema.pre('save', function (next) {
       return next(err);
     }
     user.password = hash;
-  
   next();
   })
-
 });
 
 

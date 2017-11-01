@@ -4,7 +4,7 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class SocketService {
 socket: SocketIOClient.Socket;
-
+markers: any;
   constructor() {
     this.socket = io.connect();
   }
@@ -14,12 +14,16 @@ socket: SocketIOClient.Socket;
         this.socket.on(eventName, function(data: any) {
           callback(data);
         });
+        var markers = localStorage.getItem('markers');
+        markers += this.socket;
+        
       }
     };
 
   emit(eventName: any, data: any) {
       if (this.socket) {
         this.socket.emit(eventName, data);
+        localStorage.setItem('markers', this.markers);
       }
     };
 

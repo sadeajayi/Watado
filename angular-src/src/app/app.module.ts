@@ -26,6 +26,8 @@ import { AboutComponent } from './components/about/about.component';
 import { MeetTheTeamComponent } from './components/meet-the-team/meet-the-team.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 // All services imported go under here
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
   {path: 'meet-the-team', component: MeetTheTeamComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: 'profile', component: ProfileComponent},
 ]
 
 @NgModule({
@@ -61,8 +64,8 @@ const appRoutes: Routes = [
     MeetTheTeamComponent,
     FooterComponent,
     MapCluster,
-    ForgotPasswordComponent
-
+    ForgotPasswordComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 import { Component, NgModule, NgZone, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import {MarkerService} from "../../services/marker.service";
-//import {AuthService} from '../../services/auth.service';
+import {AuthService} from '../../services/auth.service';
+import { ValidateService } from '../../services/validate.service';
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MapCluster } from '../../map-cluster';
 import { AgmJsMarkerClustererModule, ClusterManager } from "@agm/js-marker-clusterer";
-
 import 'js-marker-clusterer/src/markerclusterer.js';
 
 import {Http, HttpModule} from '@angular/http';
@@ -24,6 +24,9 @@ declare const MarkerClusterer;
 })
 
 export class MapPageComponent implements OnInit {
+  currentUser: AuthService;
+  users: AuthService[] = [];
+
   lat: number =  6.4471;
   lng: number = 3.4182;
   zoom: number = 14;
@@ -47,11 +50,15 @@ export class MapPageComponent implements OnInit {
     private _socketService: SocketService,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
+    private validateService:ValidateService, 
+    private authService:AuthService
   ) {
     document.body.style.backgroundColor = "#FFFFFF";
      this.markers = this.markerService.getMarkers();
+     this.currentUser = JSON.parse(localStorage.getItem('user'));
      //this.socket = io.connect();
   }
+
 
   /* Testing to respond to user clicking marker on client */
   clickedMarker(marker: marker, index: number) {
@@ -109,6 +116,7 @@ export class MapPageComponent implements OnInit {
  */
   ngOnInit() {
      
+
     this._socketService.on('marker-added', (marker:any) => {
       localStorage.setItem('markers',marker);
       this.markers.push(marker);   

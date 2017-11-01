@@ -10,21 +10,23 @@ export class AuthService {
   isDev:boolean;
 
   constructor(private http:Http) { 
-    this.isDev = false;
+    this.isDev = false; //change to false before deployment
   }
 
   registerUser(user){
     console.log('TRYING TO REGISTER');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    //let ep = this.prepEndpoint('users/register');
     return this.http.post('/users/register', user,{headers: headers})
       .map(res => res.json());
+    
+    /*return this.http.post('/users/register', user,{headers: headers})
+      .map(res => res.json());
+    */
   }
     authenticateUser(user){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    //let ep = this.prepEndpoint('users/authenticate');
     return this.http.post('/users/authenticate', user,{headers: headers})
       .map(res => res.json());
   }
@@ -42,9 +44,8 @@ export class AuthService {
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type','application/json');
-    let ep = this.prepEndpoint('users/map-page');
-    return this.http.get(ep,{headers: headers})
-      .map(res => res.json());
+    return this.http.post('/users/profile',{headers: headers})
+    .map(res => res.json());
   }
 
   storeUserData(token, user){
@@ -56,6 +57,7 @@ export class AuthService {
 
   loadToken(){
     const token = localStorage.getItem('id_token');
+   // let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.authToken = token;
   }
 
@@ -66,6 +68,7 @@ export class AuthService {
   logout(){
     this.authToken = null;
     this.user = null;
+    localStorage.removeItem('user');
     localStorage.clear();
   }
 

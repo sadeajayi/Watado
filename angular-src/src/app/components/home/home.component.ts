@@ -23,19 +23,15 @@ export class HomeComponent implements OnInit {
     private flashMessage:FlashMessagesService,
     public dialog: MdDialog
   ) { }
-    
+    /*
     loginOpenDialog(): void {
-      let dialogRef = this.dialog.open(LoginComponent, {
-        width: '600px',
-        data: 'This was passed in'
-        //data: { name: this.username, password: this.password }
-        });
-        dialogRef.afterClosed().subscribe(result => {
-          console.log(`The dialog was closed: ${result}`);
-          this.dialogResult = result;
-        });
+      const dialogRef = this.dialog.open(LoginComponent);
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`The dialog was closed: ${result}`);
+        this.dialogResult = result;
+      });
     }
-    
+    */
   ngOnInit() {
   }
 

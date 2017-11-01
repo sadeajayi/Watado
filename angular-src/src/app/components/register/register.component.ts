@@ -6,13 +6,12 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  name: String;
   email: String;
-  username: String;
   password: String;
   passwordConf: String;
 
@@ -37,8 +36,8 @@ export class RegisterComponent implements OnInit {
 
   onRegisterSubmit(){
     const user = {
+      name: this.name,
       email: this.email,
-      username: this.username,
       password: this.password,
       passwordConf: this.passwordConf
     }

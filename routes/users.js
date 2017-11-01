@@ -8,18 +8,21 @@ var User = require('../models/user');
 
 //POST route for updating data
 router.post('/register', function (req, res, next) {
-  if (req.body.email &&
-    req.body.username &&
-    req.body.password &&
-    req.body.passwordConf) { 
-
     let newUser = new User({
+      name:req.body.name,
       email:req.body.email,
-      username:req.body.username,
+      //username:req.body.username,
       password:req.body.password,
       passwordConf:req.body.passwordConf
     });
   
+    // confirm that user typed same password twice
+    if (req.body.password != req.body.passwordConf) {
+      var err = new Error('Passwords do not match.');
+      err.status = 400;
+      res.send("passwords dont match");
+      return next(err);
+    }
   
     User.addUser(newUser, (err, user) => {
       if(err){
@@ -28,15 +31,19 @@ router.post('/register', function (req, res, next) {
         res.json({success: true, msg:'User registered'});
       }
     });
-}
-  // confirm that user typed same password twice
-  if (req.body.password != req.body.passwordConf) {
-    var err = new Error('Passwords do not match.');
-    err.status = 400;
-    res.send("passwords dont match");
-    return next(err);
-  }
+  /*if (req.body.email &&
+    req.body.name &&
+    req.body.password &&
+    req.body.passwordConf) {
+  let newUser = new User({
+    email: req.body.email,
+    name: req.body.name,
+    password: req.body.password,
+    passwordConf:req.body.passwordConf,
+  });
+*/
 
+  
 })
 
 router.post('/authenticate', (req, res, next) => {
@@ -62,7 +69,7 @@ router.post('/authenticate', (req, res, next) => {
           user: {
             id: user._id,
             name: user.name,
-            username: user.username,
+           // username: user.username,
             email: user.email
           }
         });
