@@ -11,9 +11,7 @@ var async = require('async');
 var crypto = require('crypto');
 const config = require('./config/database');
 
-// using SendGrid's v3 Node.js Library
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 
 //connect to MongoDB
 //mongoose.connect('mongodb://localhost:27017/watado');
@@ -61,7 +59,6 @@ var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
 
 var port = process.env.PORT || 3000;
-
 
 // CORS Middleware
 app.use(cors());

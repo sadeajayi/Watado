@@ -44,8 +44,9 @@ export class AuthService {
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type','application/json');
-    return this.http.post('users/profile',{headers: headers})
-    .map(res => res.json());
+    let ep = this.prepEndpoint('users/profile');
+    return this.http.get(ep,{headers: headers})
+      .map(res => res.json());
   }
 
   storeUserData(token, user){

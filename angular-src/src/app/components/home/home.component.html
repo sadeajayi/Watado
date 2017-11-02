@@ -7,17 +7,18 @@
         <!--
           <li><a class="modal-trigger" (click)="loginOpenDialog()">LOGIN</a>
           </li>
-        -->    
-          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">LOGIN</a></li>
+        -->  
+          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/about']">About Watado</a></li> 
+          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/meet-the-team']">Our Team</a></li>   
+          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login</a></li>
           <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
             <a class="modal-trigger btn nav-sign-up"  [routerLink]="['/register']">Sign Up</a></li>
-          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/map-page']">MAP</a></li>
+          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/map-page']">MAP</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
           <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/about']">About</a></li>
           <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login</a></li>
           <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a class="modal-trigger btn nav-sign-up "  [routerLink]="['/register']">Sign Up</a></li>
-          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/map-page']">MAP</a></li>
       </ul>    
     </div>
   </nav>
@@ -43,7 +44,7 @@
         <div class="cover-heading">Discover what Lagos has in Store for you</div>
         <p class="lead">Watado, your modern-day town crier</p>
         <div class="signup">
-          <a class="waves-effect waves-light btn-large explore" [routerLink]="['/map-page']">Explore</a>
+          <a *ngIf="!authService.loggedIn()" class="waves-effect waves-light btn-large explore" [routerLink]="['/register']">Explore</a>
         </div>
       </div>
   </div>
@@ -58,6 +59,10 @@
     </div>
 </div>
 
+<!-- Watado Team section-->
+<div>
+<app-meet-the-team></app-meet-the-team>
+</div>
 
 <!-- Footer -->
 <footer class="page-footer">

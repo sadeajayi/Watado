@@ -12,7 +12,7 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  email: string;
+  username: string;
   password: string;
 
 
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   onLoginSubmit(){
     const user = {
-      email: this.email,
+      username: this.username,
       password: this.password
     }
   }

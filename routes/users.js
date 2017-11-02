@@ -2,16 +2,14 @@ var express = require('express');
 var router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-//const bcrypt = require('bcrypt')
 const config = require('../config/database');
 var User = require('../models/user');
 
 //POST route for updating data
 router.post('/register', function (req, res, next) {
     let newUser = new User({
-      name:req.body.name,
       email:req.body.email,
-      //username:req.body.username,
+      username:req.body.username,
       password:req.body.password,
       passwordConf:req.body.passwordConf
     });
@@ -50,7 +48,7 @@ router.post('/authenticate', (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   
-  User.getUserByUsername(email, (err, user) => {
+  User.getUserByUsername(username, (err, user) => {
     if(err) throw err;
     if(!user){
       return res.json({success: false, msg: 'User not found'});
@@ -69,7 +67,7 @@ router.post('/authenticate', (req, res, next) => {
           user: {
             id: user._id,
             name: user.name,
-           // username: user.username,
+            username: user.username,
             email: user.email
           }
         });

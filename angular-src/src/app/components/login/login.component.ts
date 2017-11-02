@@ -11,7 +11,7 @@ import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: String;
+  username: String;
   password: String;
 
   constructor(
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     onLoginSubmit(){
     const user = {
-      email: this.email,
+      username: this.username,
       password: this.password
     }
 
