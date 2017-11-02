@@ -54,7 +54,7 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
 
 
 //hashing a password before saving it to the database
-
+/*
 UserSchema.pre('save', function (next) {
   var user = this;
   if (!user.isModified('password')) return next();
@@ -66,4 +66,4 @@ UserSchema.pre('save', function (next) {
   next();
   })
 });
-
+*/

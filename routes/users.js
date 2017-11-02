@@ -45,7 +45,7 @@ router.post('/register', function (req, res, next) {
 })
 
 router.post('/authenticate', (req, res, next) => {
-  const email = req.body.email;
+  const username = req.body.username;
   const password = req.body.password;
   
   User.getUserByUsername(username, (err, user) => {
@@ -66,7 +66,6 @@ router.post('/authenticate', (req, res, next) => {
           token: 'JWT '+token,
           user: {
             id: user._id,
-            name: user.name,
             username: user.username,
             email: user.email
           }
